@@ -7,6 +7,7 @@ import App from './App';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
+// NOTE: BrowserRouter doesn't work nicely with Github Pages :(
 const app = (
     <HashRouter>
         <App />
