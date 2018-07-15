@@ -4,6 +4,7 @@
   "homepage": "https://beamanator.github.io/Ulti-Mate-Page",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^1.4.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
