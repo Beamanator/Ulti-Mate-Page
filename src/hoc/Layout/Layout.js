@@ -5,8 +5,6 @@ import Header from '../../components/Navigation/Header/Header';
 // import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 // import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
-import classes from './Layout.css';
-
 class Layout extends Component {
     // state = {
     //     showSideDrawer: false
