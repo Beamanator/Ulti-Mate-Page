@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CubeButton from '../../CustomUI/CubeButton/CubeButton';
+import CircleButton from '../../CustomUI/CircleButton/CircleButton';
 
 import {
     AppBar,
@@ -30,7 +31,8 @@ const header = props => {
                     Hip Hip!
                 </Typography>
                 <Button color="inherit">Login</Button>
-                <CubeButton />
+                {/* <CubeButton /> */}
+                <CircleButton />
             </Toolbar>
         </AppBar>
     )
