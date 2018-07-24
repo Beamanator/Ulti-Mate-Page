@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 // @material-ui/icons
 import { Apps, Chat, VerifiedUser, Fingerprint } from "@material-ui/icons";
+// @material-ui/core components
+import { List, ListItem, Hidden } from '@material-ui/core';
 
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -32,16 +34,21 @@ class ExploreSection extends React.Component {
                     </GridItem>
                 </GridContainer>
                 <div className={classes.greyBackground}>
-                    <GridContainer>
-                        <GridItem xs={12} sm={12} md={12}>
+                    <GridContainer justify="center">
+                        <GridItem
+                            xs={12} sm={12} md={12}
+                            className={classes.dropdownListCenter}
+                        >
+                            <h3 className={classes.title}>I live in...</h3>
                             <CustomDropdown
                                 // noLiPadding (no li-element padding)
                                 buttonText="Country"
                                 dropdownHeader="Select your country"
                                 buttonProps={{
                                     className: classes.navLink,
-                                    color: "transparent"
+                                    color: "primary"
                                 }}
+                                
                                 dropdownList={[
                                     "Egypt",
                                     "America",
@@ -50,33 +57,86 @@ class ExploreSection extends React.Component {
                                     "Prefer not to answer"
                                 ]}
                             />
+                            <h3 className={classes.title}>I'm looking...</h3>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={12} style={{backgroundColor: 'red'}}>
-                            <Button
-                                href="#pablo"
-                                className={classes.navLink}
-                                onClick={e => e.preventDefault()}
-                                color="transparent"
-                            >
-                                Link
-                            </Button>
-                            <Button
-                                href="#pablo"
-                                className={classes.navLink}
-                                onClick={e => e.preventDefault()}
-                                color="transparent"
-                            >
-                                Link
-                            </Button>
+                        <GridItem
+                            xs={12} sm={12} md={12} style={{backgroundColor: '#ab003c'}}
+                        >
+                            <GridContainer>
+                                <Hidden smDown>
+                                    <GridItem md={1}></GridItem>
+                                </Hidden>
+                                <GridItem xs={12} sm={6} md={5}>
+                                    <h3>Across the world?</h3>
+                                    <Button
+                                        href="#pablo"
+                                        className={classes.navLink+' '+classes.outlinedButton}
+                                        onClick={e => e.preventDefault()}
+                                        color="transparent"
+                                        size="lg"
+                                    >
+                                        Go Global
+                                    </Button>
+                                </GridItem>
+                                <GridItem xs={12} sm={6} md={5} className={classes.extraBottomMargin}>
+                                    <h3>Near your home?</h3>
+                                    <Button
+                                        href="#pablo"
+                                        className={classes.navLink+' '+classes.outlinedButton}
+                                        onClick={e => e.preventDefault()}
+                                        color="transparent"
+                                        size="lg"
+                                    >
+                                        Go Local
+                                    </Button>
+                                </GridItem>
+                                <Hidden smDown>
+                                    <GridItem md={1}></GridItem>
+                                </Hidden>
+                            </GridContainer>
                         </GridItem>
+
+                        {/* I'm a... */}
+                        <GridItem>
+                            <h3 className={classes.title}>I'm a...</h3>
+                        </GridItem>
+
+                        {/* Player */}
                         <GridItem xs={12} sm={12} md={4}>
-                            <InfoArea
-                                title="Fingerprint"
-                                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                                icon={Fingerprint}
-                                iconColor="danger"
-                                vertical
-                            />
+                            <VerifiedUser />
+                            <br/>
+                            <Button
+                                // href="#pablo"
+                                className={classes.navLink}
+                                onClick={e => e.preventDefault()}
+                                color="transparent"
+                            >
+                                Player
+                            </Button>
+                        </GridItem>
+                        <GridItem xs={12} sm={6} md={4}>
+                            <VerifiedUser />
+                            <br/>
+                            <Button
+                                // href="#pablo"
+                                className={classes.navLink}
+                                onClick={e => e.preventDefault()}
+                                color="transparent"
+                            >
+                                Volunteer
+                            </Button>
+                        </GridItem>
+                        <GridItem xs={12} sm={6} md={4}>
+                            <VerifiedUser />
+                            <br/>
+                            <Button
+                                // href="#pablo"
+                                className={classes.navLink}
+                                onClick={e => e.preventDefault()}
+                                color="transparent"
+                            >
+                                Fan
+                            </Button>
                         </GridItem>
                     </GridContainer>
                 </div>
