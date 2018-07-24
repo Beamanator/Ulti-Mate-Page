@@ -11,7 +11,7 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
 
-import productStyle from "assets/jss/material-kit-react/views/landingPageSections/productStyle.jsx";
+import highlightStyle from "assets/jss/material-kit-react/views/landingPageSections/highlightStyle.jsx";
 
 class HighlightSection extends React.Component {
     render() {
@@ -62,4 +62,4 @@ class HighlightSection extends React.Component {
     }
 }
 
-export default withStyles(productStyle)(HighlightSection);
+export default withStyles(highlightStyle)(HighlightSection);

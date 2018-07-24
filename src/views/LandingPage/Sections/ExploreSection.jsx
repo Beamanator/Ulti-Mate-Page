@@ -14,7 +14,7 @@ import InfoArea from "components/InfoArea/InfoArea.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import CustomDropdown from "../../../components/CustomDropdown/CustomDropdown.jsx";
 
-import productStyle from "assets/jss/material-kit-react/views/landingPageSections/productStyle.jsx";
+import exploreStyle from "assets/jss/material-kit-react/views/landingPageSections/exploreStyle.jsx";
 
 class ExploreSection extends React.Component {
     render() {
@@ -25,35 +25,49 @@ class ExploreSection extends React.Component {
                     <GridItem xs={12} sm={12} md={8}>
                         <h2 className={classes.title}>Let's explore!</h2>
                         <h5 className={classes.description}>
-                            Check out some of the recent highlights in the ultimate community!
+                            Weather you're searching for events near you or around the world,
+                            Hip Hip will find you some ultimate! Fill out the fields below
+                            so we can help narrow down which events you may be interested in!
                         </h5>
                     </GridItem>
                 </GridContainer>
-                <div>
+                <div className={classes.greyBackground}>
                     <GridContainer>
-                        <GridItem xs={12} sm={12} md={4} style={{backgroundColor: 'red'}}>
+                        <GridItem xs={12} sm={12} md={12}>
                             <CustomDropdown
-                                noLiPadding
-                                buttonText="Dr. Frisbee Person..."
+                                // noLiPadding (no li-element padding)
+                                buttonText="Country"
+                                dropdownHeader="Select your country"
                                 buttonProps={{
                                     className: classes.navLink,
                                     color: "transparent"
                                 }}
-                                buttonIcon={Apps}
                                 dropdownList={[
-                                    <span>Egypt</span>,
-                                    <span>America</span>
+                                    "Egypt",
+                                    "America",
+                                    "Germany",
+                                    { divider: true },
+                                    "Prefer not to answer"
                                 ]}
                             />
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={4}>
-                            <InfoArea
-                                title="Newest WFDF recognized organization"
-                                description="Just thought this title matched the icon - but icon can be changed easily. Title should be short probably"
-                                icon={VerifiedUser}
-                                iconColor="success"
-                                vertical
-                            />
+                        <GridItem xs={12} sm={12} md={12} style={{backgroundColor: 'red'}}>
+                            <Button
+                                href="#pablo"
+                                className={classes.navLink}
+                                onClick={e => e.preventDefault()}
+                                color="transparent"
+                            >
+                                Link
+                            </Button>
+                            <Button
+                                href="#pablo"
+                                className={classes.navLink}
+                                onClick={e => e.preventDefault()}
+                                color="transparent"
+                            >
+                                Link
+                            </Button>
                         </GridItem>
                         <GridItem xs={12} sm={12} md={4}>
                             <InfoArea
@@ -71,4 +85,4 @@ class ExploreSection extends React.Component {
     }
 }
 
-export default withStyles(productStyle)(ExploreSection);
+export default withStyles(exploreStyle)(ExploreSection);
