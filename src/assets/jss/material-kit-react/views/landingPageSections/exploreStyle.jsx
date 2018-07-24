@@ -23,7 +23,7 @@ const exploreStyle = {
         width: '200px'
     },
     outlinedButton: {
-        border: '1px solid white'
+        border: '2px solid white'
     },
     extraBottomMargin: {
         marginBottom: '20px'
