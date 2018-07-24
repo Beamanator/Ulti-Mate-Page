@@ -20,28 +20,24 @@ import Button from "components/CustomButtons/Button.jsx";
 import customDropdownStyle from "assets/jss/material-kit-react/components/customDropdownStyle.jsx";
 
 class CustomDropdown extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+  state = {
+    open: false
   }
-  handleClick() {
+  handleClick = () => {
+    // const openState = this.state.open;
+    console.log(this.state.open, 'open');
     this.setState({ open: true });
   }
-  handleClose() {
+  handleClose = () => {
+    console.log(this.state.close, 'close');
     this.setState({ open: false });
   }
   render() {
     const { open } = this.state;
     const {
       classes,
-      buttonText,
-      buttonIcon,
+      buttonText, buttonIcon, buttonProps,
       dropdownList,
-      buttonProps,
       dropup,
       dropdownHeader,
       caret,
