@@ -5,6 +5,7 @@
 1. Add a few extra `"scripts"`:
     - `"predeploy": "npm run build"` - specifies the command to build *before* deployment. This just runs the `"build"` script.
     - `"deploy": "gh-pages -d build"` - specifies which branch and directory to deploy.
+1. Install the `gh-pages` package with `npm install --save-dev gh-pages`
 1. To get your app onto github pages, just run `npm run deploy`, and then your app should be running on the link you just set in `homepage` above.
 
 ## Things learned while messing around:

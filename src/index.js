@@ -1,18 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { HashRouter } from 'react-router-dom';
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router";
 
-import App from './App';
+import indexRoutes from "routes/index.jsx";
 
-import './index.css';
-import registerServiceWorker from './registerServiceWorker';
+import "assets/scss/material-kit-react.css?v=1.1.0";
 
-// NOTE: BrowserRouter doesn't work nicely with Github Pages :(
-const app = (
-    <HashRouter>
-        <App />
-    </HashRouter>
+var hist = createBrowserHistory();
+
+ReactDOM.render(
+  <HashRouter history={hist}>
+    <Switch>
+      {indexRoutes.map((prop, key) => {
+        return <Route path={prop.path} key={key} component={prop.component} />;
+      })}
+    </Switch>
+  </HashRouter>,
+  document.getElementById("root")
 );
-
-ReactDOM.render(app, document.getElementById('root'));
-registerServiceWorker();
