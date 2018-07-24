@@ -17,6 +17,16 @@ const exploreStyle = {
     },
     greyBackground: {
         backgroundColor: "#E0E0E0"
+    },
+    // kinda sketchy override to get the list to sit near the dropdown button
+    dropdownListCenter: {
+        width: '200px'
+    },
+    outlinedButton: {
+        border: '1px solid white'
+    },
+    extraBottomMargin: {
+        marginBottom: '20px'
     }
 };
 
