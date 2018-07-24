@@ -12,19 +12,18 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import workStyle from "assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx";
 
-class WorkSection extends React.Component {
+class ContactSection extends React.Component {
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem cs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Work with us</h2>
+            <h2 className={classes.title}>Contact us</h2>
             <h4 className={classes.description}>
-              Divide details about your product or agency work into parts. Write
-              a few lines about each one and contact us about any further
-              collaboration. We will responde get back to you in a couple of
-              hours.
+              Interested in joining our team? Have comments about things we can do better?
+              We are always interested in improving our site and hearing cool ideas. We also
+              love making new friends, so hit us up! We will try to respond as quick as we can.
             </h4>
             <form>
               <GridContainer>
@@ -77,4 +76,4 @@ class WorkSection extends React.Component {
   }
 }
 
-export default withStyles(workStyle)(WorkSection);
+export default withStyles(workStyle)(ContactSection);

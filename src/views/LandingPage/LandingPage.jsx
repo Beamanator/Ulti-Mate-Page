@@ -18,66 +18,69 @@ import Parallax from "components/Parallax/Parallax.jsx";
 import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx";
 
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.jsx";
-import TeamSection from "./Sections/TeamSection.jsx";
-import WorkSection from "./Sections/WorkSection.jsx";
+import ExploreSection from './Sections/ExploreSection.jsx';
+import HighlightSection from "./Sections/HighlightSection.jsx";
+import ProjectsSection from "./Sections/ProjectsSection.jsx";
+import ContactSection from "./Sections/ContactSection.jsx";
 
 const dashboardRoutes = [];
 
 class LandingPage extends React.Component {
-  render() {
-    const { classes, ...rest } = this.props;
-    return (
-      <div>
-        <Header
-          color="transparent"
-          routes={dashboardRoutes}
-          brand="Hip Hip!"
-          rightLinks={<HeaderLinks />}
-          fixed
-          changeColorOnScroll={{
-            height: 400,
-            color: "white"
-          }}
-          {...rest}
-        />
-        {/* TODO: add main menu bar here? */}
-        <Parallax filter image={require("assets/img/landing-bg.jpg")}>
-          <div className={classes.container}>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Your Story Starts With Us.</h1>
-                <h4>
-                  Every landing page needs a small description after the big
-                  bold title, that's why we added this text here. Add here all
-                  the information that can make you or your product create the
-                  first impression.
-                </h4>
-                <br />
-                <Button
-                  color="danger"
-                  size="lg"
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fas fa-play" />Watch video
-                </Button>
-              </GridItem>
-            </GridContainer>
-          </div>
-        </Parallax>
-        <div className={classNames(classes.main, classes.mainRaised)}>
-          <div className={classes.container}>
-            <ProductSection />
-            <TeamSection />
-            <WorkSection />
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+    render() {
+        const { classes, ...rest } = this.props;
+        return (
+            <div>
+                <Header
+                    color="transparent"
+                    routes={dashboardRoutes}
+                    brand="Hip Hip!"
+                    rightLinks={<HeaderLinks />}
+                    fixed
+                    changeColorOnScroll={{
+                        height: 400,
+                        color: "white"
+                    }}
+                    {...rest}
+                />
+                {/* TODO: add main menu bar here? */}
+                <Parallax filter image={require("assets/img/landing-bg.jpg")}>
+                    <div className={classes.container}>
+                        <GridContainer>
+                            <GridItem xs={12} sm={12} md={6}>
+                                <h1 className={classes.title}>Be part of it.</h1>
+                                <h4>
+                                    Every year, millions of atheletes hailing from every country around the world
+                                    gather to compete in many different types of disc-sports. Hip Hip aims to
+                                    bring these atheletes together by providing a one-stop shop for tournaments, 
+                                    pickups, volunteer opportunities, and much more. Join us and feel the passion
+                                    for ULTIMATE!
+                                </h4>
+                                {/* <br /> */}
+                                {/* <Button
+                                    color="danger"
+                                    size="lg"
+                                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i className="fas fa-play" />Watch video
+                                </Button> */}
+                            </GridItem>
+                        </GridContainer>
+                    </div>
+                </Parallax>
+                <div className={classNames(classes.main, classes.mainRaised)}>
+                    <div className={classes.container}>
+                        <ExploreSection />
+                        <HighlightSection />
+                        <ProjectsSection />
+                        <ContactSection />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
 }
 
 export default withStyles(landingPageStyle)(LandingPage);
