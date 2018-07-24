@@ -117,30 +117,6 @@ class ExploreSection extends React.Component {
                         <GridItem>
                             <h3 className={classes.title}>I'm a...</h3>
                         </GridItem>
-
-                        <GridItem>
-                            
-                        </GridItem>
-
-                        {/* Player */}
-                        {/* <GridItem xs={12} sm={12} md={4}>
-                            <VerifiedUser />
-                            <br/>
-                            <Button
-                                // href="#pablo"
-                                className={classes.navLink}
-                                onClick={e => e.preventDefault()}
-                                color="transparent"
-                            >
-                                Player
-                            </Button>
-                        </GridItem>
-                        <GridItem xs={12} sm={6} md={4}>
-                            2
-                        </GridItem>
-                        <GridItem xs={12} sm={6} md={4}>
-                            3
-                        </GridItem> */}
                     </GridContainer>
                 </div>
                 <div className={classes.root}>
