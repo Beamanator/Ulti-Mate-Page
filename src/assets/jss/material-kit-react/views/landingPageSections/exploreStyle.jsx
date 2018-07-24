@@ -1,6 +1,6 @@
 import { title } from "assets/jss/material-kit-react.jsx";
 
-const productStyle = {
+const exploreStyle = {
     section: {
         padding: "70px 0",
         textAlign: "center"
@@ -14,7 +14,10 @@ const productStyle = {
     },
     description: {
         color: "#999"
+    },
+    greyBackground: {
+        backgroundColor: "#E0E0E0"
     }
 };
 
-export default productStyle;
+export default exploreStyle;
