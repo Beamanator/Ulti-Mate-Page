@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 // @material-ui/icons
 import { Apps, Chat, VerifiedUser, Fingerprint } from "@material-ui/icons";
 // @material-ui/core components
-import { List, ListItem, Hidden } from '@material-ui/core';
+import { List, ListItem, Hidden, ButtonBase, Typography } from '@material-ui/core';
 
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -17,6 +17,23 @@ import Button from "components/CustomButtons/Button.jsx";
 import CustomDropdown from "../../../components/CustomDropdown/CustomDropdown.jsx";
 
 import exploreStyle from "assets/jss/material-kit-react/views/landingPageSections/exploreStyle.jsx";
+
+// images for player / volunteer / fan picker
+const images = [{
+        url: require('assets/img/picker/HipHip_player.jpg'),
+        title: 'Player',
+        width: '40%',
+    },
+    {
+        url: require('assets/img/picker/HipHip_volunteer.jpg'),
+        title: 'Volunteer',
+        width: '30%',
+    },
+    {
+        url: require('assets/img/picker/HipHip_fan.jpg'),
+        title: 'Fan',
+        width: '30%',
+    }]
 
 class ExploreSection extends React.Component {
     render() {
@@ -101,8 +118,12 @@ class ExploreSection extends React.Component {
                             <h3 className={classes.title}>I'm a...</h3>
                         </GridItem>
 
+                        <GridItem>
+                            
+                        </GridItem>
+
                         {/* Player */}
-                        <GridItem xs={12} sm={12} md={4}>
+                        {/* <GridItem xs={12} sm={12} md={4}>
                             <VerifiedUser />
                             <br/>
                             <Button
@@ -115,30 +136,44 @@ class ExploreSection extends React.Component {
                             </Button>
                         </GridItem>
                         <GridItem xs={12} sm={6} md={4}>
-                            <VerifiedUser />
-                            <br/>
-                            <Button
-                                // href="#pablo"
-                                className={classes.navLink}
-                                onClick={e => e.preventDefault()}
-                                color="transparent"
-                            >
-                                Volunteer
-                            </Button>
+                            2
                         </GridItem>
                         <GridItem xs={12} sm={6} md={4}>
-                            <VerifiedUser />
-                            <br/>
-                            <Button
-                                // href="#pablo"
-                                className={classes.navLink}
-                                onClick={e => e.preventDefault()}
-                                color="transparent"
-                            >
-                                Fan
-                            </Button>
-                        </GridItem>
+                            3
+                        </GridItem> */}
                     </GridContainer>
+                </div>
+                <div className={classes.root}>
+                    {images.map(image => (
+                        <ButtonBase
+                            focusRipple
+                            key={image.title}
+                            className={classes.image}
+                            focusVisibleClassName={classes.focusVisible}
+                            style={{
+                                width: image.width,
+                            }}
+                        >
+                            <span
+                                className={classes.imageSrc}
+                                style={{
+                                    backgroundImage: `url(${image.url})`,
+                                }}
+                            />
+                            <span className={classes.imageBackdrop} />
+                            <span className={classes.imageButton}>
+                                <Typography
+                                    component="span"
+                                    variant="subheading"
+                                    color="inherit"
+                                    className={classes.imageTitle}
+                                >
+                                    {image.title}
+                                    <span className={classes.imageMarked} />
+                                </Typography>
+                            </span>
+                        </ButtonBase>
+                    ))}
                 </div>
             </div>
         );
