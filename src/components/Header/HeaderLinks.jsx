@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
+import {
+    List, ListItem,
+    Tooltip,
+    Typography
+} from "@material-ui/core";
 
 // @material-ui/icons
 import { Apps, CloudDownload } from "@material-ui/icons";
@@ -15,6 +17,7 @@ import { Apps, CloudDownload } from "@material-ui/icons";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
 import Button from "components/CustomButtons/Button.jsx";
+import Warning from "components/Typography/Warning.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
@@ -92,7 +95,8 @@ function HeaderLinks({ ...props }) {
             </ListItem>
 
             {/* Custom dropdown */}
-            <ListItem className={classes.listItem}>
+            {/* TODO: show this only when logged in? */}
+            {/* <ListItem className={classes.listItem}>
                 <CustomDropdown
                     noLiPadding
                     buttonText="Dr. Frisbee Person..."
@@ -110,10 +114,38 @@ function HeaderLinks({ ...props }) {
                             target="_blank"
                             className={classes.dropdownLink}
                         >
-                            Login / Logout page
+                            Logout
                         </a>
                     ]}
                 />
+            </ListItem> */}
+            {/* Log in / Sign up buttons */}
+            <ListItem className={classes.listItem}>
+                <Button
+                    simple
+                    color="transparent"
+                    className={classes.navLink}
+                >
+                    Log In
+                </Button>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+                <Typography
+                    color="warning"
+                    // TODO: put this in a stylesheet
+                    style={{margin: '15px 10px', color: '#ff9800'}}
+                >
+                    <span>or</span>
+                </Typography>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+                <Button
+                    simple
+                    color="transparent"
+                    className={classes.navLink}
+                >
+                    Sign Up
+                </Button>
             </ListItem>
         </List>
     );
