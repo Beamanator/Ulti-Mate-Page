@@ -15,10 +15,10 @@ ReactDOM.render(
         <Switch>
             {indexRoutes.map((prop, key) => {
                 return <Route
-                  path={prop.path} key={key} component={prop.component}
+                    path={prop.path} key={key} component={prop.component}
                 />;
             })}
         </Switch>
     </HashRouter>,
-  document.getElementById("root")
+    document.getElementById("root")
 );
