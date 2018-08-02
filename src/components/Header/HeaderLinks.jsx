@@ -25,77 +25,67 @@ function HeaderLinks({ ...props }) {
     const { classes } = props;
     return (
         <List className={classes.list}>
-            {/* Custom button */}
+            {/* Home */}
             <ListItem className={classes.listItem}>
                 <Button
                     color="transparent"
-                    href="https://www.youtube.com/channel/UCAOZsX0dTOWeu0Jb7vcGUtA"
-                    target="_blank"
                     className={classes.navLink}
                 >
-                    Check our YouTube
+                    Home
                 </Button>
             </ListItem>
 
-            {/* Twitter */}
+            {/* Find */}
             <ListItem className={classes.listItem}>
-                <Tooltip
-                    id="instagram-twitter"
-                    title="Follow us on twitter"
-                    placement={window.innerWidth > 959 ? "top" : "left"}
-                    classes={{ tooltip: classes.tooltip }}
+                <Button
+                    color="transparent"
+                    className={classes.navLink}
                 >
-                    <Button
-                        color="transparent"
-                        href="https://twitter.com/FlyDiscInvasion"
-                        target="_blank"
-                        className={classes.navLink}
-                    >
-                        <i className={classes.socialIcons + " fab fa-twitter"} />
-                    </Button>
-                </Tooltip>
+                    Find
+                </Button>
             </ListItem>
 
-            {/* Facebook */}
+            {/* Add */}
             <ListItem className={classes.listItem}>
-                <Tooltip
-                    id="instagram-facebook"
-                    title="Follow us on facebook"
-                    placement={window.innerWidth > 959 ? "top" : "left"}
-                    classes={{ tooltip: classes.tooltip }}
+                <Button
+                    color="transparent"
+                    className={classes.navLink}
                 >
-                    <Button
-                        color="transparent"
-                        href="https://www.facebook.com/FlyingDiscInvasion/"
-                        target="_blank"
-                        className={classes.navLink}
-                    >
-                        <i className={classes.socialIcons + " fab fa-facebook"} />
-                    </Button>
-                </Tooltip>
+                    Add
+                </Button>
             </ListItem>
 
-            {/* Instagram */}
+            {/* Members */}
             <ListItem className={classes.listItem}>
-                <Tooltip
-                    id="instagram-tooltip"
-                    title="Follow us on instagram"
-                    placement={window.innerWidth > 959 ? "top" : "left"}
-                    classes={{ tooltip: classes.tooltip }}
+                <Button
+                    color="transparent"
+                    className={classes.navLink}
                 >
-                    <Button
-                        color="transparent"
-                        href="https://www.instagram.com/flying.disc.invasion/"
-                        target="_blank"
-                        className={classes.navLink}
-                    >
-                        <i className={classes.socialIcons + " fab fa-instagram"} />
-                    </Button>
-                </Tooltip>
+                    Members
+                </Button>
             </ListItem>
 
-            {/* Custom dropdown */}
-            {/* TODO: show this only when logged in? */}
+            {/* Join Us */}
+            <ListItem className={classes.listItem}>
+                <Button
+                    color="transparent"
+                    className={classes.navLink}
+                >
+                    Join Us
+                </Button>
+            </ListItem>
+
+            {/* Shop - eventually, like when logged in */}
+            {/* <ListItem className={classes.listItem}>
+                <Button
+                    color="transparent"
+                    className={classes.navLink}
+                >
+                    Shop
+                </Button>
+            </ListItem> */}
+
+            {/* Account details - only when logged in */}
             {/* <ListItem className={classes.listItem}>
                 <CustomDropdown
                     noLiPadding
