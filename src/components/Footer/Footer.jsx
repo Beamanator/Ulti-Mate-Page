@@ -4,10 +4,15 @@ import React from "react";
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-import { List, ListItem, withStyles } from "@material-ui/core";
-
+// @material-ui/core
+import {
+    List, ListItem, withStyles, Tooltip, Typography
+} from "@material-ui/core";
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
+
+// custom components
+import Button from 'components/CustomButtons/Button.jsx';
 
 import footerStyle from "assets/jss/material-kit-react/components/footerStyle.jsx";
 
@@ -20,7 +25,7 @@ function Footer({ ...props }) {
     const aClasses = classNames({
         [classes.a]: true,
         [classes.footerWhiteFont]: whiteFont
-      });
+    });
     return (
         <footer className={footerClasses}>
             <div className={classes.container}>
@@ -28,53 +33,84 @@ function Footer({ ...props }) {
                     <List className={classes.list}>
                         <ListItem className={classes.inlineBlock}>
                             <a
-                                href="https://www.creative-tim.com/"
+                                href="http://www.wfdf.org/"
                                 className={classes.block}
                                 target="_blank"
                             >
-                                Creative Tim
+                                World Flying Disc Federation
                             </a>
                         </ListItem>
                         <ListItem className={classes.inlineBlock}>
                             <a
-                                href="https://www.creative-tim.com/presentation"
+                                href="http://chickenonaraft.com/"
                                 className={classes.block}
                                 target="_blank"
                             >
-                                About us
+                                About us chickens
                             </a>
                         </ListItem>
                         <ListItem className={classes.inlineBlock}>
                             <a
-                                href="http://blog.creative-tim.com/"
+                                href="https://hencefarthing.blog/"
                                 className={classes.block}
                                 target="_blank"
                             >
                                 Blog
                             </a>
                         </ListItem>
-                        <ListItem className={classes.inlineBlock}>
-                            <a
-                                href="https://www.creative-tim.com/license"
-                                className={classes.block}
-                                target="_blank"
-                            >
-                                Licenses
-                            </a>
-                        </ListItem>
                     </List>
                 </div>
                 <div className={classes.right}>
-                    &copy; {1900 + new Date().getYear()} , made with{" "}
-                    <Favorite className={classes.icon} /> by{" "}
-                    <a
-                        href="https://www.creative-tim.com"
-                        className={aClasses}
-                        target="_blank"
-                    >
-                        Creative Tim
-                    </a>{" "}
-                    for a better web.
+                    <List className={classes.list}>
+                        {/* Check us out on social media */}
+                        <ListItem className={`${classes.inlineBlock} ${classes.rightSpacing}`}>
+                            <Typography className={classes.block}>
+                                Check us out on social media:
+                            </Typography>
+                        </ListItem>
+
+                        {/* Facebook */}
+                        <ListItem className={classes.inlineBlock}>
+                            <Tooltip
+                                id="facebook-tooltip"
+                                title="Follow us on facebook"
+                                placement={window.innerWidth > 959 ? "top" : "left"}
+                                classes={{ tooltip: classes.tooltip }}
+                            >
+                                <Button justIcon round color="transparent">
+                                    <i className={classes.socialIcons + " fab fa-facebook"} />
+                                </Button>
+                            </Tooltip>
+                        </ListItem>
+
+                        {/* Instagram */}
+                        <ListItem className={classes.inlineBlock}>
+                            <Tooltip
+                                id="instagram-tooltip"
+                                title="Follow us on instagram"
+                                placement={window.innerWidth > 959 ? "top" : "left"}
+                                classes={{ tooltip: classes.tooltip }}
+                            >
+                                <Button justIcon round color="transparent">
+                                    <i className={classes.socialIcons + " fab fa-instagram"} />
+                                </Button>
+                            </Tooltip>
+                        </ListItem>
+
+                        {/* Twitter */}
+                        <ListItem className={classes.inlineBlock}>
+                            <Tooltip
+                                id="twitter-tooltip"
+                                title="Follow us on twitter"
+                                placement={window.innerWidth > 959 ? "top" : "left"}
+                                classes={{ tooltip: classes.tooltip }}
+                            >
+                                <Button justIcon round color="transparent">
+                                    <i className={classes.socialIcons + " fab fa-twitter"} />
+                                </Button>
+                            </Tooltip>
+                        </ListItem>
+                    </List>
                 </div>
             </div>
         </footer>

@@ -1,5 +1,7 @@
 import { container, primaryColor } from "assets/jss/material-kit-react.jsx";
 
+import tooltip from "assets/jss/material-kit-react/tooltipsStyle.jsx";
+
 const footerStyle = {
   block: {
     color: "inherit",
@@ -17,7 +19,7 @@ const footerStyle = {
     display: "block"
   },
   right: {
-    padding: "15px 0",
+    // padding: "15px 0", // (was used when it was plain text in original version)
     margin: "0",
     float: "right!important"
   },
@@ -54,6 +56,13 @@ const footerStyle = {
     height: "18px",
     position: "relative",
     top: "3px"
+  },
+  ...tooltip,
+  socialIcons: {
+    fontSize: "22px !important"
+  },
+  rightSpacing: {
+    marginRight: '16px'
   }
 };
 export default footerStyle;
