@@ -131,7 +131,6 @@ function HeaderLinks({ ...props }) {
             </ListItem>
             <ListItem className={classes.listItem}>
                 <Typography
-                    color="warning"
                     // TODO: put this in a stylesheet
                     style={{margin: '15px 10px', color: '#ff9800'}}
                 >
