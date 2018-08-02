@@ -3,6 +3,9 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import {
+    AppBar
+} from "@material-ui/core";
 
 // @material-ui/icons
 
@@ -42,7 +45,6 @@ class LandingPage extends React.Component {
                     }}
                     {...rest}
                 />
-                {/* TODO: add main menu bar here? */}
                 <Parallax filter image={require("assets/img/FDI-landing-bg.jpg")}>
                     <div className={classes.container}>
                         <GridContainer>
