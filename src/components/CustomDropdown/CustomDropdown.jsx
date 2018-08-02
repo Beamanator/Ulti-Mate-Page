@@ -29,7 +29,7 @@ class CustomDropdown extends React.Component {
     this.setState({ open: true });
   }
   handleClose = () => {
-    console.log(this.state.close, 'close');
+    console.log(this.state.open, 'close');
     this.setState({ open: false });
   }
   render() {
