@@ -1,18 +1,12 @@
 import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-// react components for routing our app without refresh
-import { Link } from "react-router-dom";
-
-// @material-ui/icons
-import { Apps, Chat, VerifiedUser, Fingerprint } from "@material-ui/icons";
 // @material-ui/core components
-import { List, ListItem, Hidden, ButtonBase, Typography } from '@material-ui/core';
+import { Hidden, ButtonBase, Typography } from '@material-ui/core';
 
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import InfoArea from "components/InfoArea/InfoArea.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import CustomDropdown from "../../../components/CustomDropdown/CustomDropdown.jsx";
 
