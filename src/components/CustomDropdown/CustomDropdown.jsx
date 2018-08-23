@@ -6,13 +6,12 @@ import PropTypes from "prop-types";
 import { Manager, Target, Popper } from "react-popper";
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Paper from "@material-ui/core/Paper";
-import Grow from "@material-ui/core/Grow";
-import Divider from "@material-ui/core/Divider";
+import {
+    withStyles,
+    MenuItem, MenuList,
+    ClickAwayListener,
+    Paper, Grow, Divider
+} from '@material-ui/core';
 
 // core components
 import Button from "components/CustomButtons/Button.jsx";
@@ -68,7 +67,7 @@ class CustomDropdown extends Component {
                         onClick={this.handleClick}
                     >
                         {buttonIcon !== undefined ? (
-                            <this.props.buttonIcon className={classes.buttonIcon} />
+                            <buttonIcon className={classes.buttonIcon} />
                         ) : null}
                         {buttonText !== undefined ? buttonText : null}
                         {caret ? <b className={caretClasses} /> : null}
