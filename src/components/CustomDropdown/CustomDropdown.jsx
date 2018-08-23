@@ -20,19 +20,30 @@ import customDropdownStyle from "assets/jss/material-kit-react/components/custom
 
 class CustomDropdown extends Component {
     state = {
+        customId: ~~(Math.random()*10000) + 1,
         open: false
     }
+    
     handleClick = () => {
-        // const openState = this.state.open;
-        console.log(this.state.open, 'open');
-        this.setState({ open: true });
+        this.setState({ open: !this.state.open });
     }
-    handleClose = () => {
-        console.log(this.state.open, 'close');
-        this.setState({ open: false });
+    handleClose = ({ target }) => {
+        // if you clicked on the span element inside the button, move target
+        // -> up a level to the button so we can access its 'id'
+        if (target.nodeName === "SPAN") {
+            target = target.parentElement
+        }
+
+        // if target's id does NOT match this component's id, close the dropdown.
+        if (+target.id !== this.state.customId) {
+            this.setState({ open: false });
+        }
+        // else -> button will be closed by handleClick function
+        // else {}
     }
+
     render() {
-        const { open } = this.state;
+        const { open, customId } = this.state;
         const {
             classes,
             buttonText, buttonIcon, buttonProps,
@@ -63,6 +74,7 @@ class CustomDropdown extends Component {
                         aria-label="Notifications"
                         aria-owns={open ? "menu-list" : null}
                         aria-haspopup="true"
+                        id={customId}
                         {...buttonProps}
                         onClick={this.handleClick}
                     >
@@ -85,50 +97,54 @@ class CustomDropdown extends Component {
                         [classes.pooperResponsive]: true
                     })}
                 >
-                    <ClickAwayListener onClickAway={this.handleClose}>
-                        <Grow
-                            in={open}
-                            id="menu-list"
-                            style={
-                                dropup
-                                    ? { transformOrigin: "0 100% 0" }
-                                    : { transformOrigin: "0 0 0" }
-                            }
+                    {!open ? null :
+                        <ClickAwayListener
+                            onClickAway={this.handleClose}
                         >
-                            <Paper className={classes.dropdown}>
-                                <MenuList role="menu" className={classes.menuList}>
-                                    {dropdownHeader !== undefined ? (
-                                        <MenuItem
-                                            onClick={this.handleClose}
-                                            className={classes.dropdownHeader}
-                                        >
-                                            {dropdownHeader}
-                                        </MenuItem>
-                                    ) : null}
-                                    {dropdownList.map((prop, key) => {
-                                        if (prop.divider) {
+                            <Grow
+                                in={open}
+                                id="menu-list"
+                                style={
+                                    dropup
+                                        ? { transformOrigin: "0 100% 0" }
+                                        : { transformOrigin: "0 0 0" }
+                                }
+                            >
+                                <Paper className={classes.dropdown}>
+                                    <MenuList role="menu" className={classes.menuList}>
+                                        {dropdownHeader !== undefined ? (
+                                            <MenuItem
+                                                onClick={this.handleClose}
+                                                className={classes.dropdownHeader}
+                                            >
+                                                {dropdownHeader}
+                                            </MenuItem>
+                                        ) : null}
+                                        {dropdownList.map((prop, key) => {
+                                            if (prop.divider) {
+                                                return (
+                                                    <Divider
+                                                        key={key}
+                                                        onClick={this.handleClose}
+                                                        className={classes.dropdownDividerItem}
+                                                    />
+                                                );
+                                            }
                                             return (
-                                                <Divider
+                                                <MenuItem
                                                     key={key}
                                                     onClick={this.handleClose}
-                                                    className={classes.dropdownDividerItem}
-                                                />
+                                                    className={dropdownItem}
+                                                >
+                                                    {prop}
+                                                </MenuItem>
                                             );
-                                        }
-                                        return (
-                                            <MenuItem
-                                                key={key}
-                                                onClick={this.handleClose}
-                                                className={dropdownItem}
-                                            >
-                                                {prop}
-                                            </MenuItem>
-                                        );
-                                    })}
-                                </MenuList>
-                            </Paper>
-                        </Grow>
-                    </ClickAwayListener>
+                                        })}
+                                    </MenuList>
+                                </Paper>
+                            </Grow>
+                        </ClickAwayListener>
+                    }
                 </Popper>
             </Manager>
         );
