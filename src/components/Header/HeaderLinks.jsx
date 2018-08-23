@@ -25,14 +25,47 @@ function HeaderLinks({ ...props }) {
     const { classes } = props;
     return (
         <List className={classes.list}>
-            {/* Home */}
+            {/* More / about us links */}
             <ListItem className={classes.listItem}>
-                <Button
-                    color="transparent"
-                    className={classes.navLink}
-                >
-                    Home
-                </Button>
+                <CustomDropdown
+                    noLiPadding
+                    buttonText="More"
+                    buttonProps={{
+                        className: classes.navLink,
+                        color: "transparent"
+                    }}
+                    // buttonIcon={Apps}
+                    dropdownList={[
+                        // TODO: replace all 'a' tags with <Link> components
+                        // <Link to="/landing-page" className={classes.dropdownLink}>
+                        //     About
+                        // </Link>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            About Hip-Hip
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            FAQ
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Country Rankings
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            News
+                        </a>,
+                    ]}
+                />
             </ListItem>
 
             {/* Find */}
@@ -47,12 +80,51 @@ function HeaderLinks({ ...props }) {
 
             {/* Add */}
             <ListItem className={classes.listItem}>
-                <Button
-                    color="transparent"
-                    className={classes.navLink}
-                >
-                    Add
-                </Button>
+                <CustomDropdown
+                    noLiPadding
+                    buttonText="Add"
+                    buttonProps={{
+                        className: classes.navLink,
+                        color: "transparent"
+                    }}
+                    // buttonIcon={Apps}
+                    dropdownList={[
+                        // TODO: replace all 'a' tags with <Link> components
+                        // <Link to="/landing-page" className={classes.dropdownLink}>
+                        //     Home
+                        // </Link>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Tournaments
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Pick-ups
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Requests
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Offering
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Business
+                        </a>,
+                    ]}
+                />
             </ListItem>
 
             {/* Members */}
@@ -67,23 +139,50 @@ function HeaderLinks({ ...props }) {
 
             {/* Join Us */}
             <ListItem className={classes.listItem}>
-                <Button
-                    color="transparent"
-                    className={classes.navLink}
-                >
-                    Join Us
-                </Button>
+                <CustomDropdown
+                    noLiPadding
+                    buttonText="Join Us"
+                    buttonProps={{
+                        className: classes.navLink,
+                        color: "transparent"
+                    }}
+                    // buttonIcon={Apps}
+                    dropdownList={[
+                        // TODO: replace all 'a' tags with <Link> components
+                        // <Link to="/landing-page" className={classes.dropdownLink}>
+                        //     Home
+                        // </Link>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Opportunities
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Career
+                        </a>,
+                        <a
+                            href="#" target="_blank"
+                            className={classes.dropdownLink}
+                        >
+                            Sponsoring
+                        </a>,
+                    ]}
+                />
             </ListItem>
 
             {/* Shop - eventually, like when logged in */}
-            {/* <ListItem className={classes.listItem}>
+            <ListItem className={classes.listItem}>
                 <Button
                     color="transparent"
                     className={classes.navLink}
                 >
                     Shop
                 </Button>
-            </ListItem> */}
+            </ListItem>
 
             {/* Account details - only when logged in */}
             {/* <ListItem className={classes.listItem}>
@@ -109,6 +208,7 @@ function HeaderLinks({ ...props }) {
                     ]}
                 />
             </ListItem> */}
+
             {/* Log in / Sign up buttons */}
             <ListItem className={classes.listItem}>
                 <Button
