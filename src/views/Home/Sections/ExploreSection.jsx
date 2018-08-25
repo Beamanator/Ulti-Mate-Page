@@ -16,20 +16,18 @@ import CustomDropdown from "../../../components/CustomDropdown/CustomDropdown.js
 import exploreStyle from "assets/jss/material-kit-react/views/homeSections/exploreStyle.jsx";
 
 // images for player / volunteer / fan picker
-const images = [{
-        url: require('assets/img/picker/HipHip_player.jpg'),
-        title: 'Player', searchType: 'player',
-        width: '40%',
-    },
-    {
+const userTypeImages = [{
         url: require('assets/img/picker/HipHip_volunteer.jpg'),
-        title: 'Volunteer', searchType: 'volunteer',
-        width: '30%',
-    },
-    {
+        title: 'Volunteer', userType: 'volunteer',
+        width: '33.33%',
+    }, {
+        url: require('assets/img/picker/HipHip_player.jpg'),
+        title: 'Player', userType: 'player',
+        width: '33.33%',
+    }, {
         url: require('assets/img/picker/HipHip_fan.jpg'),
-        title: 'Fan', searchType: 'fan',
-        width: '30%',
+        title: 'Fan', userType: 'fan',
+        width: '33.33%',
     }]
 
 class ExploreSection extends Component {
@@ -49,7 +47,7 @@ class ExploreSection extends Component {
     render() {
         const {
             proximity, onChangeProximity,
-            searchType, onChangeSearchType,
+            userType, onChangeUserType,
             onSearchClicked,
             classes // from withStypes
         } = this.props;
@@ -136,13 +134,13 @@ class ExploreSection extends Component {
                     </GridContainer>
                 </div>
                 <div className={classes.root}>
-                    {images.map(image => (
+                    {userTypeImages.map(image => (
                         <ButtonBase
                             focusRipple
                             key={image.title}
                             className={
                                 classes.image + (
-                                    image.searchType === searchType
+                                    image.userType === userType
                                         ? ' ' + classes.imageSelected
                                         : ''
                                 )
@@ -151,7 +149,7 @@ class ExploreSection extends Component {
                             style={{
                                 width: image.width,
                             }}
-                            onClick={() => onChangeSearchType(image.searchType)}
+                            onClick={() => onChangeUserType(image.userType)}
                         >
                             <span
                                 className={classes.imageSrc}

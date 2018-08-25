@@ -29,7 +29,7 @@ class Home extends Component {
     state = {
         searchParams: {
             proximity: '',
-            searchType: ''
+            userType: ''
         }
     }
 
@@ -51,18 +51,18 @@ class Home extends Component {
         // else, same same - no change
     }
 
-    onChangeSearchType = (newSearchType) => {
-        // error if searchType is not possible value
-        if ( !['player', 'volunteer', 'fan'].includes(newSearchType) ) {
-            console.error('HOME.JSX', `Invalid search type:`, newSearchType);
+    onChangeUserType = (newUserType) => {
+        // error if userType is not possible value
+        if ( !['player', 'volunteer', 'fan'].includes(newUserType) ) {
+            console.error('HOME.JSX', `Invalid search type:`, newUserType);
             return;
         }
         // else, if different, set new value
-        else if (this.state.searchParams.newSearchType !== newSearchType) {
+        else if (this.state.searchParams.newUserType !== newUserType) {
             this.setState({
                 searchParams: {
                     ...this.state.searchParams,
-                    searchType: newSearchType
+                    userType: newUserType
                 }
             });
         }
@@ -70,15 +70,15 @@ class Home extends Component {
     }
 
     onSearchClicked = () => {
-        const {searchParams: { proximity, searchType }} = this.state;
+        const {searchParams: { proximity, userType }} = this.state;
         // TODO: navigate to the "Find" tab?
-        console.warn('search!', proximity, searchType );
+        console.warn('search!', proximity, userType );
     }
 
     render() {
         const { classes, ...rest } = this.props;
         const {
-            searchParams: { proximity, searchType }
+            searchParams: { proximity, userType }
         } = this.state;
 
         return (
@@ -126,8 +126,8 @@ class Home extends Component {
                         <ExploreSection
                             proximity={proximity}
                             onChangeProximity={this.onChangeProximity}
-                            searchType={searchType}
-                            onChangeSearchType={this.onChangeSearchType}
+                            userType={userType}
+                            onChangeUserType={this.onChangeUserType}
                             onSearchClicked={this.onSearchClicked}
                         />
                         <HighlightSection />
