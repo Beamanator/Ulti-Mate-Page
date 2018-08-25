@@ -28,8 +28,8 @@ const dashboardRoutes = [];
 class Home extends Component {
     state = {
         searchParams: {
-            proximity: 'global',
-            searchType: 'player'
+            proximity: '',
+            searchType: ''
         }
     }
 
