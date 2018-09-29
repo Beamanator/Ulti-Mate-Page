@@ -23,8 +23,6 @@ import HighlightSection from "./Sections/HighlightSection.jsx";
 import ProjectsSection from "./Sections/ProjectsSection.jsx";
 import ContactSection from "./Sections/ContactSection.jsx";
 
-const dashboardRoutes = [];
-
 class Home extends Component {
     state = {
         searchParams: {
@@ -85,7 +83,6 @@ class Home extends Component {
             <div>
                 <Header
                     color="transparent"
-                    routes={dashboardRoutes}
                     brand="Hip Hip!"
                     rightLinks={<HeaderLinks />}
                     fixed
@@ -99,7 +96,7 @@ class Home extends Component {
                     <div className={classes.container}>
                         <GridContainer>
                             <GridItem xs={12} sm={12} md={6}>
-                                <h1 className={classes.title}>Home! Be part of it.</h1>
+                                <h1 className={classes.title}>Ultimate</h1>
                                 <h4>
                                     Every year, millions of atheletes hailing from every country around the world
                                     gather to compete in many different types of disc-sports. Hip Hip aims to

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -32,7 +32,7 @@ import work5 from "assets/img/examples/clem-onojegaw.jpg";
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 
-class ProfilePage extends React.Component {
+class ProfilePage extends Component {
   render() {
     const { classes, ...rest } = this.props;
     const imageClasses = classNames(
