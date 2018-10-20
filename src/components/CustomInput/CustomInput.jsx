@@ -71,7 +71,7 @@ function CustomInput({ ...props }) {
           underline: underlineClasses
         }}
         id={id}
-        {...inputProps}
+        {...inputProps} 
       />
       {error ? (
         <Clear className={classes.feedback + " " + classes.labelRootError} />
