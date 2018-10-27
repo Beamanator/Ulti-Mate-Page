@@ -20,9 +20,7 @@ import customDropdownStyle from "assets/jss/material-kit-react/components/custom
 
 class CustomDropdown extends Component {
     state = {
-        // customId: ~~(Math.random()*10000) + 1,
         open: false,
-        // anchorEl,
     }
     
     handleToggle = (event) => {
@@ -65,7 +63,6 @@ class CustomDropdown extends Component {
                     aria-label="Notifications"
                     aria-owns={open ? "menu-list" : null}
                     aria-haspopup="true"
-                    id={customId}
                     {...buttonProps}
                     onClick={this.handleToggle}
                     buttonRef={node => {
