@@ -28,13 +28,26 @@ import pickupStyle from "assets/jss/material-kit-react/views/addPages/pickupStyl
 // images
 import image from "assets/img/bg7.jpg";
 
+const dateTimeKeys = [
+    'Sunday', 'Monday', 'Tuesday', 'Wednesday',
+    'Thursday', 'Friday', 'Saturday'
+];
+const repeatOptions = [
+    {label: 'Once', key: 'once'},
+    {label: 'Weekly', key: 'weekly'},
+    {label: 'Semi-Monthly', key: 'semi_monthly'},
+    {label: 'Monthly', key: 'monthly'},
+    {label: 'Once per season', key: 'once_per_season'},
+    {label: 'Yearly', key: 'yearly'}
+];
+
 class AddPickup extends Component {
     state = {
         // date / time data for pickup. each day has the following props:
         // -> on: weather pickup is happening this specific day
         // -> time: the date of day pickup is happening that day
         dateTimeData: {
-            repetition: 'once',
+            repeatType: 'once',
             // note: times must be '' or undefinied initially, or will hit error
             // -> https://stackoverflow.com/questions/37427508/react-changing-an-uncontrolled-input
             Sunday:     {on: false, time: ''},
@@ -47,7 +60,15 @@ class AddPickup extends Component {
         }
     }
 
-    weekdayToggle = (event) => {
+    repeatToggle = repeatType => event => {
+        this.setState(state => ({
+            dateTimeData: {
+                ...state.dateTimeData,
+                repeatType: repeatType
+            }
+        }));
+    }
+    weekdayToggle = event => {
         // get clicked day key from click event
         let dayKey = event.target.innerText;
         
@@ -83,12 +104,7 @@ class AddPickup extends Component {
 
     render() {
         const { classes, ...rest } = this.props;
-        const { dateTimeData } = this.state;
-
-        const dateTimeKeys = [
-            'Sunday', 'Monday', 'Tuesday', 'Wednesday',
-            'Thursday', 'Friday', 'Saturday'
-        ];
+        const { dateTimeData, dateTimeData: { repeatType } } = this.state;
 
         return (
             <Fragment>
@@ -219,42 +235,16 @@ class AddPickup extends Component {
                                                     <GridItem xs={12} sm={9} md={10}
                                                         className={classes.gridVerticalSpacing}
                                                     >
-                                                        <Chip
-                                                            label="Once"
-                                                            className={classes.chipSpacing}
-                                                            onClick={this.weekdayToggle}
-                                                            onDelete={this.weekdayDeleted}
-                                                        />
-                                                        <Chip
-                                                            label="Weekly"
-                                                            className={classes.chipSpacing}
-                                                            onClick={this.weekdayToggle}
-                                                            onDelete={this.weekdayDeleted}
-                                                        />
-                                                        <Chip
-                                                            label="Semi-Monthly"
-                                                            className={classes.chipSpacing}
-                                                            onClick={this.weekdayToggle}
-                                                            onDelete={this.weekdayDeleted}
-                                                        />
-                                                        <Chip
-                                                            label="Monthly"
-                                                            className={classes.chipSpacing}
-                                                            onClick={this.weekdayToggle}
-                                                            onDelete={this.weekdayDeleted}
-                                                        />
-                                                        <Chip
-                                                            label="Once per season"
-                                                            className={classes.chipSpacing}
-                                                            onClick={this.weekdayToggle}
-                                                            onDelete={this.weekdayDeleted}
-                                                        />
-                                                        <Chip
-                                                            label="Yearly"
-                                                            className={classes.chipSpacing}
-                                                            onClick={this.weekdayToggle}
-                                                            onDelete={this.weekdayDeleted}
-                                                        />
+                                                        {repeatOptions.map(({label, key}) =>
+                                                            <Chip
+                                                                key={key}
+                                                                label={label}
+                                                                onClick={this.repeatToggle(key)}
+                                                                className={classes.chipSpacing}
+                                                                color={key === repeatType ? 'secondary' : 'default'}
+                                                                variant={key === repeatType ? 'default' : 'outlined'}
+                                                            />
+                                                        )}
                                                     </GridItem>
                                                 </GridContainer>
                                             </GridItem>
