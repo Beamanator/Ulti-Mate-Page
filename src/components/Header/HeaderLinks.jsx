@@ -100,7 +100,6 @@ function HeaderLinks({ ...props }) {
                             Tournament
                         </a>,
                         <Link
-                            // href="#" target="_blank"
                             to="/add/pickup"
                             className={classes.dropdownLink}
                         >
