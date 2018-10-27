@@ -4,7 +4,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-import LockOutline from "@material-ui/icons/LockOutline";
+import LockOutline from "@material-ui/icons/Lock";
 import People from "@material-ui/icons/People";
 // core components
 import Header from "components/Header/Header.jsx";
