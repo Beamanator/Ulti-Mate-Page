@@ -23,14 +23,14 @@ const customDropdownStyle = theme => ({
     border: "0",
     boxShadow: "0 2px 5px 0 rgba(0, 0, 0, 0.26)",
     top: "100%",
-    zIndex: "1000",
+    zIndex: "1400",
     minWidth: "160px",
     padding: "5px 0",
     margin: "2px 0 0",
     fontSize: "14px",
     textAlign: "left",
     listStyle: "none",
-    backgroundColor: "#fff",
+    backgroundColor: "#f2f2f2",
     backgroundClip: "padding-box"
   },
   menuList: {

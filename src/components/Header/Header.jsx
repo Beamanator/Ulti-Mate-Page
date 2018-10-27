@@ -112,6 +112,7 @@ class Header extends React.Component {
                         </IconButton>
                     </Hidden>
                 </Toolbar>
+                {/* sidebar menu */}
                 <Hidden mdUp implementation="css">
                     <Drawer
                         variant="temporary"
