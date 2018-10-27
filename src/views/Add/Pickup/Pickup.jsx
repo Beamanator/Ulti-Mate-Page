@@ -35,45 +35,60 @@ class AddPickup extends Component {
         // -> time: the date of day pickup is happening that day
         dateTimeData: {
             repetition: 'once',
-            sunday:     {on: false, time: null},
-            monday:     {on: false, time: null},
-            tuesday:    {on: false, time: null},
-            wednesday:  {on: false, time: null},
-            thursday:   {on: false, time: null},
-            friday:     {on: false, time: null},
-            saturday:   {on: false, time: null},
+            // note: times must be '' or undefinied initially, or will hit error
+            // -> https://stackoverflow.com/questions/37427508/react-changing-an-uncontrolled-input
+            Sunday:     {on: false, time: ''},
+            Monday:     {on: false, time: ''},
+            Tuesday:    {on: false, time: ''},
+            Wednesday:  {on: false, time: ''},
+            Thursday:   {on: false, time: ''},
+            Friday:     {on: false, time: ''},
+            Saturday:   {on: false, time: ''},
         }
     }
 
     weekdayToggle = (event) => {
         // get clicked day key from click event
-        let dayKey = event.target.innerText.toLowerCase();
-        let wasOn = this.state.dateTimeData[dayKey].on;
-        let newOn, newTime;
+        let dayKey = event.target.innerText;
+        
+        // get old on & time
+        let {
+            on: wasOn, time
+        } = this.state.dateTimeData[dayKey];
 
         // toggle on / off
-        newOn = !wasOn;
-
-        // if newOn, display blank date. If off, hide
-        if (newOn) newTime = '--:-- --';
-        else newTime = null;
+        let newOn = !wasOn;
 
         // now set state :)
         this.setState(state => ({
             dateTimeData: {
                 ...state.dateTimeData,
-                [dayKey]: {on: newOn, time: newTime}
+                [dayKey]: {on: newOn, time}
             }
-        }))
+        }));
+    }
+    handleTimeChange = dayKey => event => {
+        let newTime = event.target.value;
+        // set state with new time :)
+        this.setState(state => ({
+            dateTimeData: {
+                ...state.dateTimeData,
+                [dayKey]: {
+                    on: state.dateTimeData[dayKey].on,
+                    time: newTime
+                }
+            }
+        }));
     }
 
     render() {
         const { classes, ...rest } = this.props;
-        const {
-            dateTimeData: {
-                sunday, monday, tuesday, wednesday, thursday, friday, saturday
-            },
-        } = this.state;
+        const { dateTimeData } = this.state;
+
+        const dateTimeKeys = [
+            'Sunday', 'Monday', 'Tuesday', 'Wednesday',
+            'Thursday', 'Friday', 'Saturday'
+        ];
 
         return (
             <Fragment>
@@ -171,69 +186,29 @@ class AddPickup extends Component {
                                             </GridItem>
                                             <GridItem xs={10} className={classes.groupDataBorder}>
                                                 <GridContainer>
-                                                    <GridItem xs={12} sm={6} md={4}>
-                                                        <Chip
-                                                            label="Sunday"
-                                                            onClick={this.weekdayToggle}
-                                                            className={classes.chipSpacing}
-                                                            color={sunday.on ? 'secondary' : 'default'}
-                                                            variant={sunday.on ? 'default' : 'outlined'}
+                                                    {dateTimeKeys.map(dayKey => (
+                                                        <GridItem xs={12} sm={6} md={4} key={dayKey}
+                                                            style={{marginTop: '2px', marginBottom: '2px'}}
+                                                        >
+                                                            <Chip
+                                                                label={dayKey}
+                                                                onClick={this.weekdayToggle}
+                                                                color={dateTimeData[dayKey].on ? 'secondary' : 'default'}
+                                                                variant={dateTimeData[dayKey].on ? 'default' : 'outlined'}
                                                             />
-                                                        <Chip
-                                                            label="Monday"
-                                                            onClick={this.weekdayToggle}
-                                                            className={classes.chipSpacing}
-                                                            color={monday.on ? 'secondary' : 'default'}
-                                                            variant={monday.on ? 'default' : 'outlined'}
-                                                        />
-                                                        <Chip
-                                                            label="Tuesday"
-                                                            onClick={this.weekdayToggle}
-                                                            className={classes.chipSpacing}
-                                                            color={tuesday.on ? 'secondary' : 'default'}
-                                                            variant={tuesday.on ? 'default' : 'outlined'}
-                                                        />
-                                                        <TextField
-                                                            // label="Game Time"
-                                                            // defaultValue="06:00"
-                                                            // disabled
-                                                            id="pickup_time_sunday"
-                                                            type="time"
-                                                            InputLabelProps={{ shrink: true }}
-                                                            className={classes.textField}
-                                                            inputProps={{
-                                                                step: 900, // 15 min
-                                                            }}
-                                                        />
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        <Chip
-                                                            label="Sunday"
-                                                            className={classes.chipSpacing}
-                                                            onClick={this.weekdayToggle}
-                                                            onDelete={this.weekdayDeleted}
-                                                        />
-                                                        <Chip
-                                                            label="Monday"
-                                                            className={classes.chipSpacing}
-                                                            onClick={this.weekdayToggle}
-                                                            onDelete={this.weekdayDeleted}
-                                                        />
-                                                        {/* Tuesday, weds, ... */}
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        <TextField
-                                                            label="Game Time"
-                                                            id="pickup_time"
-                                                            type="time"
-                                                            defaultValue="06:00"
-                                                            InputLabelProps={{ shrink: true }}
-                                                            className={classes.textField}
-                                                            inputProps={{
-                                                                step: 1500, // 15 min
-                                                            }}
-                                                        />
-                                                    </GridItem>
+                                                            <TextField
+                                                                disabled={!dateTimeData[dayKey].on}
+                                                                type="time"
+                                                                value={dateTimeData[dayKey].time}
+                                                                onChange={this.handleTimeChange(dayKey)}
+                                                                InputLabelProps={{ shrink: true }}
+                                                                className={classes.textField}
+                                                                inputProps={{
+                                                                    step: 900, // 15 min
+                                                                }}
+                                                            />
+                                                        </GridItem>
+                                                    ))}
                                                     <GridItem xs={6} sm={6} md={4}>
                                                         <Chip
                                                             label="Once"
