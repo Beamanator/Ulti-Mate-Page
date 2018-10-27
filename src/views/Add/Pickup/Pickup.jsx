@@ -29,16 +29,51 @@ import pickupStyle from "assets/jss/material-kit-react/views/addPages/pickupStyl
 import image from "assets/img/bg7.jpg";
 
 class AddPickup extends Component {
-    weekDayClicked = (event) => {
-        console.log('clicked', event)
+    state = {
+        // date / time data for pickup. each day has the following props:
+        // -> on: weather pickup is happening this specific day
+        // -> time: the date of day pickup is happening that day
+        dateTimeData: {
+            repetition: 'once',
+            sunday:     {on: false, time: null},
+            monday:     {on: false, time: null},
+            tuesday:    {on: false, time: null},
+            wednesday:  {on: false, time: null},
+            thursday:   {on: false, time: null},
+            friday:     {on: false, time: null},
+            saturday:   {on: false, time: null},
+        }
     }
 
-    weekDayDeleted = (event) => {
-        console.log('deleted', event);
+    weekdayToggle = (event) => {
+        // get clicked day key from click event
+        let dayKey = event.target.innerText.toLowerCase();
+        let wasOn = this.state.dateTimeData[dayKey].on;
+        let newOn, newTime;
+
+        // toggle on / off
+        newOn = !wasOn;
+
+        // if newOn, display blank date. If off, hide
+        if (newOn) newTime = '--:-- --';
+        else newTime = null;
+
+        // now set state :)
+        this.setState(state => ({
+            dateTimeData: {
+                ...state.dateTimeData,
+                [dayKey]: {on: newOn, time: newTime}
+            }
+        }))
     }
 
     render() {
         const { classes, ...rest } = this.props;
+        const {
+            dateTimeData: {
+                sunday, monday, tuesday, wednesday, thursday, friday, saturday
+            },
+        } = this.state;
 
         return (
             <Fragment>
@@ -66,11 +101,8 @@ class AddPickup extends Component {
                             <GridItem xs={12} sm={12} md={10}>
                                 <Card>
                                     <CardHeader color="primary" className={classes.cardHeader}>
-                                        <h4>Add Details about your Pick-up Game!</h4>
+                                        <h4>Fill in details about your Pick-up Game!</h4>
                                     </CardHeader>
-                                    {/* <p className={classes.divider}>
-                                        Enter all of the data about your pickup event below!
-                                    </p> */}
                                     <CardBody>
                                         {/* event title, organized by, gmaps, city/neighborhood */}
                                         <GridContainer >
@@ -139,18 +171,53 @@ class AddPickup extends Component {
                                             </GridItem>
                                             <GridItem xs={10} className={classes.groupDataBorder}>
                                                 <GridContainer>
+                                                    <GridItem xs={12} sm={6} md={4}>
+                                                        <Chip
+                                                            label="Sunday"
+                                                            onClick={this.weekdayToggle}
+                                                            className={classes.chipSpacing}
+                                                            color={sunday.on ? 'secondary' : 'default'}
+                                                            variant={sunday.on ? 'default' : 'outlined'}
+                                                            />
+                                                        <Chip
+                                                            label="Monday"
+                                                            onClick={this.weekdayToggle}
+                                                            className={classes.chipSpacing}
+                                                            color={monday.on ? 'secondary' : 'default'}
+                                                            variant={monday.on ? 'default' : 'outlined'}
+                                                        />
+                                                        <Chip
+                                                            label="Tuesday"
+                                                            onClick={this.weekdayToggle}
+                                                            className={classes.chipSpacing}
+                                                            color={tuesday.on ? 'secondary' : 'default'}
+                                                            variant={tuesday.on ? 'default' : 'outlined'}
+                                                        />
+                                                        <TextField
+                                                            // label="Game Time"
+                                                            // defaultValue="06:00"
+                                                            // disabled
+                                                            id="pickup_time_sunday"
+                                                            type="time"
+                                                            InputLabelProps={{ shrink: true }}
+                                                            className={classes.textField}
+                                                            inputProps={{
+                                                                step: 900, // 15 min
+                                                            }}
+                                                        />
+                                                    </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
                                                         <Chip
                                                             label="Sunday"
                                                             className={classes.chipSpacing}
-                                                            onClick={this.weekDayClicked}
-                                                            onDelete={this.weekDayDeleted}
+                                                            onClick={this.weekdayToggle}
+                                                            onDelete={this.weekdayDeleted}
                                                         />
                                                         <Chip
                                                             label="Monday"
                                                             className={classes.chipSpacing}
-                                                            onClick={this.weekDayClicked}
-                                                            onDelete={this.weekDayDeleted}
+                                                            onClick={this.weekdayToggle}
+                                                            onDelete={this.weekdayDeleted}
                                                         />
                                                         {/* Tuesday, weds, ... */}
                                                     </GridItem>
@@ -160,9 +227,7 @@ class AddPickup extends Component {
                                                             id="pickup_time"
                                                             type="time"
                                                             defaultValue="06:00"
-                                                            InputLabelProps={{
-                                                                shrink: true,
-                                                            }}
+                                                            InputLabelProps={{ shrink: true }}
                                                             className={classes.textField}
                                                             inputProps={{
                                                                 step: 1500, // 15 min
@@ -173,14 +238,14 @@ class AddPickup extends Component {
                                                         <Chip
                                                             label="Once"
                                                             className={classes.chipSpacing}
-                                                            onClick={this.weekDayClicked}
-                                                            onDelete={this.weekDayDeleted}
+                                                            onClick={this.weekdayToggle}
+                                                            onDelete={this.weekdayDeleted}
                                                         />
                                                         <Chip
                                                             label="Weekly"
                                                             className={classes.chipSpacing}
-                                                            onClick={this.weekDayClicked}
-                                                            onDelete={this.weekDayDeleted}
+                                                            onClick={this.weekdayToggle}
+                                                            onDelete={this.weekdayDeleted}
                                                         />
                                                         {/* bi-weekly, monthly, etc */}
                                                     </GridItem>
@@ -278,12 +343,26 @@ class AddPickup extends Component {
                                             </GridItem>
                                         </GridContainer>
                                         
+                                        {/* simple spacer for field groups */}
+                                        <p className={classes.divider}></p>
+
                                         {/* Other */}
-                                        {/* Language(s) spoken (english, arabic, german) */}
+                                        <GridContainer>
+                                            <GridItem xs={2} className={classes.groupLabel}>
+                                                Facility Details
+                                            </GridItem>
+                                            <GridItem xs={10} className={classes.groupDataBorder}>
+                                                <GridContainer>
+                                                    <GridItem xs={6} sm={6} md={4}>
+                                                        Languages Spoken
+                                                    </GridItem>
+                                                </GridContainer>
+                                            </GridItem>
+                                        </GridContainer>
                                     </CardBody>
                                     <CardFooter className={classes.cardFooter}>
                                         {/* TODO: ADD + ICON HERE */}
-                                        <Button simple color="primary" size="lg">
+                                        <Button color="primary" size="lg">
                                             Create Pickup [+ icon]
                                         </Button>
                                     </CardFooter>
