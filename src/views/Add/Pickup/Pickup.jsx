@@ -188,14 +188,14 @@ class AddPickup extends Component {
                                                 <GridContainer>
                                                     {dateTimeKeys.map(dayKey => (
                                                         <GridItem xs={12} sm={6} md={4} key={dayKey}
-                                                            style={{marginTop: '2px', marginBottom: '2px'}}
-                                                        >
+                                                            className={classes.gridVerticalSpacing}
+                                                            >
                                                             <Chip
                                                                 label={dayKey}
                                                                 onClick={this.weekdayToggle}
                                                                 color={dateTimeData[dayKey].on ? 'secondary' : 'default'}
                                                                 variant={dateTimeData[dayKey].on ? 'default' : 'outlined'}
-                                                            />
+                                                                />
                                                             <TextField
                                                                 disabled={!dateTimeData[dayKey].on}
                                                                 type="time"
@@ -206,10 +206,19 @@ class AddPickup extends Component {
                                                                 inputProps={{
                                                                     step: 900, // 15 min
                                                                 }}
-                                                            />
+                                                                />
                                                         </GridItem>
                                                     ))}
-                                                    <GridItem xs={6} sm={6} md={4}>
+                                                </GridContainer>
+                                                <GridContainer>
+                                                    <GridItem xs={12} sm={3} md={2}
+                                                        className={classes.gridBothSpacing}
+                                                    >
+                                                        How often?
+                                                    </GridItem>
+                                                    <GridItem xs={12} sm={9} md={10}
+                                                        className={classes.gridVerticalSpacing}
+                                                    >
                                                         <Chip
                                                             label="Once"
                                                             className={classes.chipSpacing}
@@ -222,7 +231,30 @@ class AddPickup extends Component {
                                                             onClick={this.weekdayToggle}
                                                             onDelete={this.weekdayDeleted}
                                                         />
-                                                        {/* bi-weekly, monthly, etc */}
+                                                        <Chip
+                                                            label="Semi-Monthly"
+                                                            className={classes.chipSpacing}
+                                                            onClick={this.weekdayToggle}
+                                                            onDelete={this.weekdayDeleted}
+                                                        />
+                                                        <Chip
+                                                            label="Monthly"
+                                                            className={classes.chipSpacing}
+                                                            onClick={this.weekdayToggle}
+                                                            onDelete={this.weekdayDeleted}
+                                                        />
+                                                        <Chip
+                                                            label="Once per season"
+                                                            className={classes.chipSpacing}
+                                                            onClick={this.weekdayToggle}
+                                                            onDelete={this.weekdayDeleted}
+                                                        />
+                                                        <Chip
+                                                            label="Yearly"
+                                                            className={classes.chipSpacing}
+                                                            onClick={this.weekdayToggle}
+                                                            onDelete={this.weekdayDeleted}
+                                                        />
                                                     </GridItem>
                                                 </GridContainer>
                                             </GridItem>

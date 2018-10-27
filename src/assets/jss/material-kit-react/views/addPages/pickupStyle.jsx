@@ -53,19 +53,27 @@ const pickupStyle = {
         marginBottom: "0px",
         textAlign: "center"
     },
-    groupLabel: {
+    gridBothSpacing: {
         textAlign: 'center',
-        marginTop: "10px"
+        marginTop: '4px',
+    },
+    gridVerticalSpacing: {
+        marginTop: '2px',
+        marginBottom: '2px',
     },
     groupDataBorder: {
         borderLeft: '2px solid black',
     },
+    groupLabel: {
+        textAlign: 'center',
+        marginTop: "10px"
+    },
     textField: {
-        flex: 1,
-        width: "auto",
+        float: "right"
     },
     chipSpacing: {
-        marginRight: '5px'
+        marginRight: '5px',
+        marginBottom: '3px'
     },
     // title: {
     //     ...title,
