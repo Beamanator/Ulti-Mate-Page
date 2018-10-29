@@ -75,9 +75,14 @@ const pickupStyle = {
         marginRight: '5px',
         marginBottom: '3px'
     },
-    // title: {
-    //     ...title,
-    // }
+    switchControlBorder: {
+        border: '1px solid #d6d6d6',
+        borderRadius: '12px',
+    },
+    switchControlSpacing: {
+        paddingRight: '12px',
+        margin: '2px',
+    }
 };
 
 export default pickupStyle;

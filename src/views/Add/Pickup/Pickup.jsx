@@ -5,7 +5,12 @@ import classNames from "classnames";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import { InputAdornment, TextField, Chip } from "@material-ui/core";
+import {
+    Chip,
+    FormGroup, FormControlLabel,
+    Switch,
+    InputAdornment, TextField,
+} from "@material-ui/core";
 
 // @material-ui/icons
 import { People }  from "@material-ui/icons";
@@ -41,6 +46,17 @@ const repeatOptions = [
     {label: 'Once per season', key: 'once_per_season'},
     {label: 'Yearly', key: 'yearly'}
 ];
+const facilityOptions = [
+    ["Changing Rooms?", "changingRooms"],
+    ["Toilets at facility?", "toilets"],
+    ["Showers at facility?", "showers"],
+    ["Free drinking water?", "water"],
+    ["Parking?", "parking"],
+    ["Lockers available?", "lockers"],
+    ["Facility is outdoors?", "outside"],
+    ["Fees to get in?", "fees"],
+    ["Anyone can play?", "everyoneInvited"]
+];
 
 class AddPickup extends Component {
     state = {
@@ -58,9 +74,30 @@ class AddPickup extends Component {
             Thursday:   {on: false, time: ''},
             Friday:     {on: false, time: ''},
             Saturday:   {on: false, time: ''},
+        },
+        facilityData: {
+            changingRooms: false,
+            everyoneInvited: false,
+            fees: false,
+            outside: false,
+            parking: false,
+            showers: false,
+            toilets: false,
+            lockers: false,
+            water: false,
         }
     }
 
+    toggleFacility = setting => event => {
+        let isChecked = event.target.checked;
+        // update state
+        this.setState(state => ({
+            facilityData: {
+                ...state.facilityData,
+                [setting]: isChecked,
+            }
+        }))
+    }
     repeatToggle = repeatType => event => {
         this.setState(state => ({
             dateTimeData: {
@@ -105,7 +142,10 @@ class AddPickup extends Component {
 
     render() {
         const { classes, ...rest } = this.props;
-        const { dateTimeData, dateTimeData: { repeatType } } = this.state;
+        const {
+            dateTimeData, dateTimeData: { repeatType },
+            facilityData
+        } = this.state;
 
         return (
             <Fragment>
@@ -385,35 +425,25 @@ class AddPickup extends Component {
                                                 Facility Details
                                             </GridItem>
                                             <GridItem xs={10} className={classes.groupDataBorder}>
-                                                <GridContainer>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Free toilets? Y/N
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Showers available? Y/N
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Changing rooms available? Y/N
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Free drinking water? Y/N
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Parking available? Y/N
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Lockers available? Y/N
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Indoor vs Outdoor
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Who is allowed in? (players only, everyone)
-                                                    </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Fees?
-                                                    </GridItem>
-                                                </GridContainer>
+                                                <FormGroup row>
+                                                    {facilityOptions.map(([label, key]) => (
+                                                        <FormControlLabel
+                                                            key={key}
+                                                            className={classNames(
+                                                                classes.switchControlBorder,
+                                                                classes.switchControlSpacing
+                                                            )}
+                                                            control = {
+                                                                <Switch
+                                                                    checked={facilityData[key]}
+                                                                    onChange={this.toggleFacility(key)}
+                                                                    value={key}
+                                                                />
+                                                            }
+                                                            label={label}
+                                                        />
+                                                    ))}
+                                                </FormGroup>
                                             </GridItem>
                                         </GridContainer>
                                         
@@ -427,8 +457,13 @@ class AddPickup extends Component {
                                             </GridItem>
                                             <GridItem xs={10} className={classes.groupDataBorder}>
                                                 <GridContainer>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Languages Spoken
+                                                    <GridItem xs={12}>
+                                                        <CustomInput
+                                                            labelText="Languages spoken..."
+                                                            id="languages"
+                                                            formControlProps={{ fullWidth: true }}
+                                                            inputProps={{ type: "text" }}
+                                                        />
                                                     </GridItem>
                                                 </GridContainer>
                                             </GridItem>
