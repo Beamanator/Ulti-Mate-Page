@@ -23,6 +23,7 @@ import CardHeader from "components/Card/CardHeader.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx';
 import CustomInput from "components/CustomInput/CustomInput.jsx";
+import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Header from "components/Header/Header.jsx";
@@ -155,7 +156,7 @@ class AddPickup extends Component {
                     rightLinks={<HeaderLinks />}
                     fixed
                     changeColorOnScroll={{
-                        height: 200,
+                        height: 100,
                         color: "white"
                     }}
                     {...rest}
@@ -165,7 +166,8 @@ class AddPickup extends Component {
                     style={{
                         backgroundImage: "url(" + image + ")",
                         backgroundSize: "cover",
-                        backgroundPosition: "top center"
+                        backgroundPosition: "top center",
+                        backgroundAttachment: 'fixed',
                     }}
                 >
                     <div className={classes.container}>
@@ -480,6 +482,7 @@ class AddPickup extends Component {
                             </GridItem>
                         </GridContainer>
                     </div>
+                    <Footer />
                 </div>
             </Fragment>
         )
