@@ -35,7 +35,7 @@ class CustomDropdown extends Component {
     }
 
     render() {
-        const { open, customId } = this.state;
+        const { open } = this.state;
         const {
             classes,
             buttonText, buttonIcon, buttonProps,

@@ -16,6 +16,7 @@ import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
+import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx';
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -110,7 +111,7 @@ class AddPickup extends Component {
             <Fragment>
                 <Header
                     color="transparent"
-                    brand="Material Kit React"
+                    brand="Hip Hip"
                     rightLinks={<HeaderLinks />}
                     fixed
                     changeColorOnScroll={{
@@ -167,7 +168,7 @@ class AddPickup extends Component {
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
                                                         <CustomInput
-                                                            labelText="Gmaps Link..."
+                                                            labelText="Gmaps Link"
                                                             id="gmaps_link"
                                                             formControlProps={{ fullWidth: true }}
                                                             inputProps={{
@@ -253,53 +254,123 @@ class AddPickup extends Component {
                                         {/* simple spacer for field groups */}
                                         <p className={classes.divider}></p>
 
-                                        {/* Game details */}
+                                        {/* Game & field details */}
                                         <GridContainer>
                                             <GridItem xs={2} className={classes.groupLabel}>
-                                                Game Details
+                                                Game / Field Details
                                             </GridItem>
                                             <GridItem xs={10} className={classes.groupDataBorder}>
                                                 <GridContainer>
                                                     <GridItem xs={6} sm={6} md={4}>
-                                                        Gender(s)
+                                                        <CustomDropdown
+                                                            buttonText="Gender"
+                                                            dropdownHeader="Who is invited?"
+                                                            buttonProps={{
+                                                                color: "transparent",
+                                                                fullWidth: true
+                                                            }}
+                                                            dropdownList={[
+                                                                { divider: true },
+                                                                "Mixed", "Men only", "Females only"
+                                                            ]}
+                                                        />
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
-                                                        Competitiveness (serious, fun, noobs)
+                                                        <CustomDropdown
+                                                            buttonText="Competition level"
+                                                            dropdownHeader="How serious are the games?"
+                                                            buttonProps={{
+                                                                color: "transparent",
+                                                                fullWidth: true
+                                                            }}
+                                                            dropdownList={[
+                                                                { divider: true },
+                                                                "Super serious", "Casual but competitive",
+                                                                "Fun, not serious", "Mostly beginners"
+                                                            ]}
+                                                        />
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
-                                                        Max # of players (input)
+                                                        <CustomDropdown
+                                                            buttonText="Which rule-set"
+                                                            dropdownHeader="Which rules are used?"
+                                                            buttonProps={{
+                                                                color: "transparent",
+                                                                fullWidth: true
+                                                            }}
+                                                            dropdownList={[
+                                                                { divider: true },
+                                                                "Anything goes", "Beach (BULA)", "Custom",
+                                                                "Goaltimate", "USA Ultimate", "WFDF"
+                                                            ]}
+                                                        />
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
-                                                        Fees?
+                                                        <CustomDropdown
+                                                            buttonText="Average # of players"
+                                                            dropdownHeader="How many players show up usually?"
+                                                            buttonProps={{
+                                                                color: "transparent",
+                                                                fullWidth: true
+                                                            }}
+                                                            dropdownList={[
+                                                                { divider: true },
+                                                                "0-10", "10-20", "20-30", "30+"
+                                                            ]}
+                                                        />
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
-                                                        Rules (WFDF, custom, goaltimate, beach, etc)
-                                                    </GridItem>
-                                                </GridContainer>
-                                            </GridItem>
-                                        </GridContainer>
-
-                                        {/* simple spacer for field groups */}
-                                        <p className={classes.divider}></p>
-
-                                        {/* Field details */}
-                                        <GridContainer>
-                                            <GridItem xs={2} className={classes.groupLabel}>
-                                                Field Details
-                                            </GridItem>
-                                            <GridItem xs={10} className={classes.groupDataBorder}>
-                                                <GridContainer>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Surface type (grass, turf, indoor, sand)
+                                                        <CustomDropdown
+                                                            buttonText="Surface type"
+                                                            dropdownHeader="The field is made of..."
+                                                            buttonProps={{
+                                                                color: "transparent",
+                                                                fullWidth: true
+                                                            }}
+                                                            dropdownList={[
+                                                                { divider: true },
+                                                                "Real grass", "Astroturf", "Sand", "Asphalt",
+                                                                "Wood", "... other?"
+                                                            ]}
+                                                        />
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
-                                                        Indoor vs Outdoor
+                                                        <CustomDropdown
+                                                            buttonText="Field size"
+                                                            dropdownHeader="Approximate field size"
+                                                            buttonProps={{
+                                                                color: "transparent",
+                                                                fullWidth: true
+                                                            }}
+                                                            dropdownList={[
+                                                                { divider: true },
+                                                                "Full field (37m x 110m)",
+                                                                "Beach field (25m x 75m)",
+                                                                "5v5 football field (15m x 30m)"
+                                                            ]}
+                                                        />
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
-                                                        Field size (full, half)?
+                                                        <CustomDropdown
+                                                            buttonText="Signup required?"
+                                                            dropdownHeader="Player needs to fill a form before coming?"
+                                                            buttonProps={{
+                                                                color: "transparent",
+                                                                fullWidth: true
+                                                            }}
+                                                            dropdownList={[
+                                                                { divider: true },
+                                                                "Yes (add signup method!)", "Optional", "No"
+                                                            ]}
+                                                        />
                                                     </GridItem>
-                                                    <GridItem xs={6} sm={6} md={4}>
-                                                        Signup needed?
+                                                    <GridItem xs={6} xm={6} md={4}>
+                                                        <CustomInput
+                                                            labelText="Signup link..."
+                                                            id="signup_link"
+                                                            formControlProps={{ fullWidth: true }}
+                                                            inputProps={{ type: "text" }}
+                                                        />
                                                     </GridItem>
                                                 </GridContainer>
                                             </GridItem>
@@ -334,7 +405,13 @@ class AddPickup extends Component {
                                                         Lockers available? Y/N
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
+                                                        Indoor vs Outdoor
+                                                    </GridItem>
+                                                    <GridItem xs={6} sm={6} md={4}>
                                                         Who is allowed in? (players only, everyone)
+                                                    </GridItem>
+                                                    <GridItem xs={6} sm={6} md={4}>
+                                                        Fees?
                                                     </GridItem>
                                                 </GridContainer>
                                             </GridItem>
@@ -346,7 +423,7 @@ class AddPickup extends Component {
                                         {/* Other */}
                                         <GridContainer>
                                             <GridItem xs={2} className={classes.groupLabel}>
-                                                Facility Details
+                                                Other Details
                                             </GridItem>
                                             <GridItem xs={10} className={classes.groupDataBorder}>
                                                 <GridContainer>
