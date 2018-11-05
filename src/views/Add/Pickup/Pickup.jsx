@@ -195,7 +195,7 @@ class AddPickup extends Component {
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
                                                         <CustomInput
-                                                            labelText="Organized by..."
+                                                            labelText="Organized by who..."
                                                             id="organizer"
                                                             formControlProps={{ fullWidth: true }}
                                                             inputProps={{
@@ -213,14 +213,7 @@ class AddPickup extends Component {
                                                             labelText="Gmaps Link"
                                                             id="gmaps_link"
                                                             formControlProps={{ fullWidth: true }}
-                                                            inputProps={{
-                                                                type: "text",
-                                                                endAdornment: (
-                                                                    <InputAdornment position="end">
-                                                                        <People className={classes.inputIconsColor} />
-                                                                    </InputAdornment>
-                                                                )
-                                                            }}
+                                                            inputProps={{ type: "text" }}
                                                         />
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
@@ -229,6 +222,20 @@ class AddPickup extends Component {
                                                             id="city_neighborhood"
                                                             formControlProps={{ fullWidth: true }}
                                                             inputProps={{ type: "text" }}
+                                                        />
+                                                    </GridItem>
+                                                    <GridItem xs={6} sm={6} md={4}>
+                                                        <CustomDropdown
+                                                            buttonText="Country"
+                                                            dropdownHeader="In which country?"
+                                                            buttonProps={{
+                                                                color: "transparent",
+                                                                fullWidth: true
+                                                            }}
+                                                            dropdownList={[
+                                                                { divider: true },
+                                                                "Somehow", "Get list", "Of countries", "Here"
+                                                            ]}
                                                         />
                                                     </GridItem>
                                                 </GridContainer>
@@ -265,7 +272,7 @@ class AddPickup extends Component {
                                                                 inputProps={{
                                                                     step: 900, // 15 min
                                                                 }}
-                                                                />
+                                                            />
                                                         </GridItem>
                                                     ))}
                                                 </GridContainer>
@@ -414,6 +421,29 @@ class AddPickup extends Component {
                                                             inputProps={{ type: "text" }}
                                                         />
                                                     </GridItem>
+                                                    <GridItem xs={6} xm={6} md={4}>
+                                                        <CustomInput
+                                                            labelText="Contact person..."
+                                                            id="contact_person"
+                                                            formControlProps={{ fullWidth: true }}
+                                                            inputProps={{
+                                                                type: "text",
+                                                                endAdornment: (
+                                                                    <InputAdornment position="end">
+                                                                        <People className={classes.inputIconsColor} />
+                                                                    </InputAdornment>
+                                                                )
+                                                            }}
+                                                        />
+                                                    </GridItem>
+                                                    <GridItem xs={6} xm={6} md={4}>
+                                                        <CustomInput
+                                                            labelText="Contact phone #..."
+                                                            id="contact_phone"
+                                                            formControlProps={{ fullWidth: true }}
+                                                            inputProps={{ type: "text" }}
+                                                        />
+                                                    </GridItem>
                                                 </GridContainer>
                                             </GridItem>
                                         </GridContainer>
@@ -461,10 +491,23 @@ class AddPickup extends Component {
                                                 <GridContainer>
                                                     <GridItem xs={12}>
                                                         <CustomInput
-                                                            labelText="Languages spoken..."
+                                                            labelText="Language(s) spoken..."
                                                             id="languages"
                                                             formControlProps={{ fullWidth: true }}
                                                             inputProps={{ type: "text" }}
+                                                        />
+                                                    </GridItem>
+                                                    <GridItem xs={12}>
+                                                        <TextField
+                                                            // id="outlined-multiline-static"
+                                                            label="Extra Notes"
+                                                            multiline
+                                                            fullWidth
+                                                            placeholder="Example: Bring your ID and $5 for field fees..."
+                                                            rows="4"
+                                                            className={classes.textField}
+                                                            // margin="normal"
+                                                            variant="outlined"
                                                         />
                                                     </GridItem>
                                                 </GridContainer>

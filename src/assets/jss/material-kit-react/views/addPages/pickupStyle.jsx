@@ -69,7 +69,18 @@ const pickupStyle = {
         marginTop: "10px"
     },
     textField: {
-        float: "right"
+        float: "right",
+        color: "#495057",
+        "&,&::placeholder": {
+            fontSize: "14px",
+            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+            fontWeight: "400",
+            lineHeight: "1.42857",
+            opacity: "1"
+        },
+        "&::placeholder": {
+            color: "#AAAAAA"
+        }
     },
     chipSpacing: {
         marginRight: '5px',
