@@ -1,6 +1,6 @@
 import { container } from "assets/jss/material-kit-react.jsx";
 
-const pickupStyle = {
+const pickupStyle = theme => ({
     container: {
         ...container,
         zIndex: '2',
@@ -71,6 +71,7 @@ const pickupStyle = {
     textField: {
         float: "right",
         color: "#495057",
+        fontSize: "14px",
         "&,&::placeholder": {
             fontSize: "14px",
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
@@ -93,7 +94,13 @@ const pickupStyle = {
     switchControlSpacing: {
         paddingRight: '12px',
         margin: '2px',
-    }
-};
+    },
+    lightTooltip: {
+        background: theme.palette.common.white,
+        color: theme.palette.text.primary,
+        boxShadow: theme.shadows[1],
+        fontSize: 11,
+    },
+});
 
 export default pickupStyle;
