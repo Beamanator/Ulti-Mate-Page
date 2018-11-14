@@ -10,6 +10,7 @@ import {
     FormGroup, FormControlLabel,
     Switch,
     InputAdornment, TextField,
+    Tooltip,
 } from "@material-ui/core";
 
 // @material-ui/icons
@@ -497,8 +498,38 @@ class AddPickup extends Component {
                                                             inputProps={{ type: "text" }}
                                                         />
                                                     </GridItem>
+                                                    {/* <GridItem xs={12}>
+                                                        <CustomInput
+                                                            labelText="Extra Notes..."
+                                                            id="extra_notes"
+                                                            formControlProps={{
+                                                                fullWidth: true,
+                                                                variant: "outlined",
+                                                            }}
+                                                            inputProps={{
+                                                                multiline: true,
+                                                                type: "text",
+                                                                rows: "4",
+                                                                placeholder: "Example: Bring your ID and $5 for field fees..."
+                                                            }}
+                                                        />
+                                                    </GridItem> */}
                                                     <GridItem xs={12}>
-                                                        <TextField
+                                                        <Tooltip
+                                                            title="Add any extra notes here! Example: Bring your ID and $5 for field fees..."
+                                                            placement="top-start"
+                                                        >
+                                                            <TextField
+                                                                // id="outlined-multiline-static"
+                                                                label="Extra Notes"
+                                                                multiline
+                                                                fullWidth
+                                                                rows="4"
+                                                                className={classes.textField}
+                                                                variant="outlined"
+                                                            />
+                                                        </Tooltip>
+                                                        {/* <TextField
                                                             // id="outlined-multiline-static"
                                                             label="Extra Notes"
                                                             multiline
@@ -508,7 +539,7 @@ class AddPickup extends Component {
                                                             className={classes.textField}
                                                             // margin="normal"
                                                             variant="outlined"
-                                                        />
+                                                        /> */}
                                                     </GridItem>
                                                 </GridContainer>
                                             </GridItem>
