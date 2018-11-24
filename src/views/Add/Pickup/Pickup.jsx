@@ -36,6 +36,7 @@ import pickupStyle from "assets/jss/material-kit-react/views/addPages/pickupStyl
 // images
 import image from "assets/img/bg7.jpg";
 
+// Note: order of items determines order in which they display
 const dateTimeKeys = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday',
     'Thursday', 'Friday', 'Saturday'
@@ -50,14 +51,13 @@ const repeatOptions = [
 ];
 const facilityOptions = [
     ["Changing Rooms?", "changingRooms"],
-    ["Toilets at facility?", "toilets"],
-    ["Showers at facility?", "showers"],
-    ["Free drinking water?", "water"],
-    ["Parking?", "parking"],
     ["Lockers available?", "lockers"],
+    ["Toilets at facility?", "toilets"],
+    ["Free drinking water?", "water"],
+    ["Parking available?", "parking"],
+    ["Showers at facility?", "showers"],
     ["Facility is outdoors?", "outside"],
-    ["Fees to get in?", "fees"],
-    ["Anyone can play?", "everyoneInvited"]
+    ["Anyone can play?", "everyoneInvited"],
 ];
 
 class AddPickup extends Component {
@@ -80,14 +80,15 @@ class AddPickup extends Component {
         facilityData: {
             changingRooms: false,
             everyoneInvited: false,
-            fees: false,
+            // fees: false,
             outside: false,
             parking: false,
             showers: false,
             toilets: false,
             lockers: false,
             water: false,
-        }
+        },
+        feeData: {}
     }
 
     toggleFacility = setting => event => {
@@ -176,10 +177,10 @@ class AddPickup extends Component {
                             <GridItem xs={12} sm={12} md={10}>
                                 <Card>
                                     <CardHeader color="primary" className={classes.cardHeader}>
-                                        <h4>Fill in details about your Pick-up Game!</h4>
+                                        <h4>{"Fill in details about your Pick-up Game!"}</h4>
                                     </CardHeader>
                                     <CardBody>
-                                        {/* event title, organized by, gmaps, city/neighborhood */}
+                                        {/* Name / location */}
                                         <GridContainer >
                                             <GridItem xs={2} className={classes.groupLabel}>
                                                 Name / Location
@@ -196,7 +197,7 @@ class AddPickup extends Component {
                                                     </GridItem>
                                                     <GridItem xs={6} sm={6} md={4}>
                                                         <CustomInput
-                                                            labelText="Organized by who..."
+                                                            labelText="Organized by whom..."
                                                             id="organizer"
                                                             formControlProps={{ fullWidth: true }}
                                                             inputProps={{
@@ -479,6 +480,42 @@ class AddPickup extends Component {
                                                 </FormGroup>
                                             </GridItem>
                                         </GridContainer>
+
+                                        {/* simple spacer for field groups */}
+                                        <p className={classes.divider}></p>
+
+                                        {/* Fee details */}
+                                        <GridContainer>
+                                            <GridItem xs={2} className={classes.groupLabel}>
+                                                Fees
+                                            </GridItem>
+                                            <GridItem xs={10} className={classes.groupDataBorder}>
+                                                <GridContainer>
+                                                    <GridItem xs={6} sm={6} md={4}>
+                                                        <CustomInput
+                                                            labelText="Fees to enter facility:"
+                                                            id="fee_facility"
+                                                            formControlProps={{ fullWidth: true }}
+                                                            inputProps={{
+                                                                type: "text",
+                                                                placeholder: "Free!"
+                                                            }}
+                                                        />
+                                                    </GridItem>
+                                                    <GridItem xs={6} sm={6} md={4}>
+                                                        <CustomInput
+                                                            labelText="Fees to play on field / court:"
+                                                            id="fee_field"
+                                                            formControlProps={{ fullWidth: true }}
+                                                            inputProps={{
+                                                                type: "text",
+                                                                placeholder: "50 EGP per hour"
+                                                            }}
+                                                        />
+                                                    </GridItem>
+                                                </GridContainer>
+                                            </GridItem>
+                                        </GridContainer>
                                         
                                         {/* simple spacer for field groups */}
                                         <p className={classes.divider}></p>
@@ -486,7 +523,7 @@ class AddPickup extends Component {
                                         {/* Other */}
                                         <GridContainer>
                                             <GridItem xs={2} className={classes.groupLabel}>
-                                                Other Details
+                                                Other
                                             </GridItem>
                                             <GridItem xs={10} className={classes.groupDataBorder}>
                                                 <GridContainer>
@@ -516,7 +553,7 @@ class AddPickup extends Component {
                                                     </GridItem> */}
                                                     <GridItem xs={12}>
                                                         <Tooltip
-                                                            title="Add any extra notes here! Example: Bring your ID and $5 for field fees..."
+                                                            title="Add any extra notes here! Example: Bring your ID and 5 dollars for field fees..."
                                                             placement="top-start"
                                                         >
                                                             <TextField
@@ -529,17 +566,6 @@ class AddPickup extends Component {
                                                                 variant="outlined"
                                                             />
                                                         </Tooltip>
-                                                        {/* <TextField
-                                                            // id="outlined-multiline-static"
-                                                            label="Extra Notes"
-                                                            multiline
-                                                            fullWidth
-                                                            placeholder="Example: Bring your ID and $5 for field fees..."
-                                                            rows="4"
-                                                            className={classes.textField}
-                                                            // margin="normal"
-                                                            variant="outlined"
-                                                        /> */}
                                                     </GridItem>
                                                 </GridContainer>
                                             </GridItem>
@@ -556,7 +582,7 @@ class AddPickup extends Component {
                             </GridItem>
                         </GridContainer>
                     </div>
-                    <Footer />
+                    <Footer whiteFont />
                 </div>
             </Fragment>
         )
