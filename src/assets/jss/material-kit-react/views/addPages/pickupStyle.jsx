@@ -6,11 +6,16 @@ const pickupStyle = theme => ({
         zIndex: '2',
         position: 'relative',
         paddingTop: '200px',
-        color: '#FFFFFF'
+        // color: '#FFFFFF'
     },
     bkgStyles: {
         minHeight: "100vh",
-        maxHeight: "1200px",
+        /**
+         * 24 Nov 2018: removin 'maxHeight: "1200px"' property causes 2 things:
+         * 1) background image spans full height of page (good)
+         * 2) links at bottom of page are now dark (bad)
+         * -> solve by adding 'whiteFont' prop to Footer
+         */
         height: "auto",
         display: "inherit",
         position: "relative",
