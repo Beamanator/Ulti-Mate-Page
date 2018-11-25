@@ -7,6 +7,7 @@ import LoginPage from "views/LoginPage/LoginPage.jsx";
 // created by Hip Hip
 import Home from 'views/Home/Home.jsx';
 import AddPickup from 'views/Add/Types/Pickup.jsx';
+import AddTournament from 'views/Add/Types/Tournament.jsx';
 
 const indexRoutes = [
     // defaults
@@ -18,6 +19,7 @@ const indexRoutes = [
     // created by Hip Hip
     // 'Add' pages
     { path: "/add/pickup", name: "Add Pickup", component: AddPickup },
+    { path: "/add/tournament", name: "Add Tournament", component: AddTournament },
     // home (Note: Must go on bottom! Matches everything "else")
     { path: "/", name: "Home", component: Home },
 ];
