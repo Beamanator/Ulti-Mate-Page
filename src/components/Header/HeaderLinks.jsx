@@ -93,12 +93,12 @@ function HeaderLinks({ ...props }) {
                         // <Link to="/landing-page" className={classes.dropdownLink}>
                         //     Home
                         // </Link>,
-                        <a
-                            href="#" target="_blank"
+                        <Link
+                            to="/add/tournament"
                             className={classes.dropdownLink}
                         >
                             Tournament
-                        </a>,
+                        </Link>,
                         <Link
                             to="/add/pickup"
                             className={classes.dropdownLink}
