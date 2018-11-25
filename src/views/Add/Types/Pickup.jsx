@@ -31,7 +31,7 @@ import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 
 // custom styles
-import pickupStyle from "assets/jss/material-kit-react/views/addPages/pickupStyle.jsx";
+import pickupStyle from "assets/jss/material-kit-react/views/addTypes/pickupStyle.jsx";
 
 // images
 import image from "assets/img/bg7.jpg";

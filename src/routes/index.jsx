@@ -6,7 +6,7 @@ import LoginPage from "views/LoginPage/LoginPage.jsx";
 
 // created by Hip Hip
 import Home from 'views/Home/Home.jsx';
-import AddPickup from 'views/Add/Pickup/Pickup.jsx';
+import AddPickup from 'views/Add/Types/Pickup.jsx';
 
 const indexRoutes = [
     // defaults
