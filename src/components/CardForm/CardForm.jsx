@@ -30,7 +30,7 @@ const CardForm = (props) => {
                         <h4>{formTitle}</h4>
                     </CardHeader>
                     <CardBody>
-                        {"grid groups go here"}
+                        {props.children}
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
                         {"grid action button(s) & text go here"}
