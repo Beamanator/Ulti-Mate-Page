@@ -5,9 +5,16 @@ import classNames from "classnames";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import {
+    TextField,
+    Tooltip,
+} from "@material-ui/core";
 
 // core components
 import CardForm from "components/CardForm/CardForm.jsx";
+import CardFormGroup from "components/CardForm/CardFormGroup.jsx";
+import CardFormItem from "components/CardForm/CardFormItem.jsx";
+import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -17,6 +24,10 @@ import tournamentStyle from "assets/jss/material-kit-react/views/addTypes/tourna
 
 // images
 import image from "assets/img/bg7.jpg";
+
+// consts
+const CARD_FORM_TITLE = "Add your Tournament so players can find you!";
+const PREFIX = "TOURNAMENT_ELEM_ID_";
 
 class AddTournament extends Component {
     render() {
@@ -45,9 +56,147 @@ class AddTournament extends Component {
                     }}
                 >
                     <div className={classes.container}>
-                        <CardForm
-                            formTitle="Add your Tournament so players can find you!"
-                        />
+                        <CardForm formTitle={CARD_FORM_TITLE}>
+                            <CardFormGroup groupTitle={"Name / Location"}>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Tournament name..."
+                                        id={PREFIX + "name"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Organized by whom..."
+                                        id={PREFIX + "organizer"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Location (Gmaps link)"
+                                        id={PREFIX + "gmaps"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="City / location"
+                                        id={PREFIX + "location"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Website"
+                                        id={PREFIX + "website"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <Tooltip
+                                        title="Describe your event! Get people excited!"
+                                        placement="top-start"
+                                    >
+                                        <TextField
+                                            // id="outlined-multiline-static"
+                                            label="Tournament Description"
+                                            multiline
+                                            fullWidth
+                                            rows="4"
+                                            className={classes.textField}
+                                            variant="outlined"
+                                        />
+                                    </Tooltip>
+                                </CardFormItem>
+                            </CardFormGroup>
+
+                            <CardFormGroup groupTitle={"Date / Time"}>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Event date range?..."
+                                        id={PREFIX + "time_test"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Duration (auto calculated?)"
+                                        id={PREFIX + "time_test2"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Year of inception (volume #?)"
+                                        id={PREFIX + "time_test2"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                            </CardFormGroup>
+
+                            <CardFormGroup groupTitle={"Yes / No's"}>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Meals included?"
+                                        id={PREFIX + "meals_included"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="continue here... (yes / no / extra)"
+                                        id={PREFIX + "extra"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                            </CardFormGroup>
+
+                            <CardFormGroup groupTitle={"Fees"} noEndSpacer>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Player Fees"
+                                        id={PREFIX + "fees_player"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Team Fees"
+                                        id={PREFIX + "fees_team"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Registration begins..."
+                                        id={PREFIX + "reg_start"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Registration deadline..."
+                                        id={PREFIX + "reg_end"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                            </CardFormGroup>
+                        </CardForm>
                     </div>
                 </div>
                 <Footer whiteFont />

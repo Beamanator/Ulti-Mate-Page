@@ -181,7 +181,7 @@ class AddPickup extends Component {
                                     </CardHeader>
                                     <CardBody>
                                         {/* Name / location */}
-                                        <GridContainer >
+                                        <GridContainer>
                                             <GridItem xs={2} className={classes.groupLabel}>
                                                 Name / Location
                                             </GridItem>
@@ -257,13 +257,13 @@ class AddPickup extends Component {
                                                     {dateTimeKeys.map(dayKey => (
                                                         <GridItem xs={12} sm={6} md={4} key={dayKey}
                                                             className={classes.gridVerticalSpacing}
-                                                            >
+                                                        >
                                                             <Chip
                                                                 label={dayKey}
                                                                 onClick={this.weekdayToggle}
                                                                 color={dateTimeData[dayKey].on ? 'secondary' : 'default'}
                                                                 variant={dateTimeData[dayKey].on ? 'default' : 'outlined'}
-                                                                />
+                                                            />
                                                             <TextField
                                                                 disabled={!dateTimeData[dayKey].on}
                                                                 type="time"
