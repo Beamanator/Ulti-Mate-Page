@@ -43,6 +43,21 @@ const tournamentStyle = theme => ({
         marginBottom: "0px",
         textAlign: "center"
     },
+    textField: {
+        float: "right",
+        color: "#495057",
+        fontSize: "14px",
+        "&,&::placeholder": {
+            fontSize: "14px",
+            fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+            fontWeight: "400",
+            lineHeight: "1.42857",
+            opacity: "1"
+        },
+        "&::placeholder": {
+            color: "#AAAAAA"
+        }
+    },
 });
 
 export default tournamentStyle;
