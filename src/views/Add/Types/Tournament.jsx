@@ -14,6 +14,7 @@ import {
 import CardForm from "components/CardForm/CardForm.jsx";
 import CardFormGroup from "components/CardForm/CardFormGroup.jsx";
 import CardFormItem from "components/CardForm/CardFormItem.jsx";
+import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx';
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Header from "components/Header/Header.jsx";
@@ -98,7 +99,7 @@ class AddTournament extends Component {
                                         inputProps={{ type: "text" }}
                                     />
                                 </CardFormItem>
-                                <CardFormItem>
+                                <CardFormItem size={{'xs': 12}}>
                                     <Tooltip
                                         title="Describe your event! Get people excited!"
                                         placement="top-start"
@@ -116,7 +117,7 @@ class AddTournament extends Component {
                                 </CardFormItem>
                             </CardFormGroup>
 
-                            <CardFormGroup groupTitle={"Date / Time"}>
+                            <CardFormGroup groupTitle={"Date / Registration"}>
                                 <CardFormItem>
                                     <CustomInput
                                         labelText="Event date range?..."
@@ -143,6 +144,82 @@ class AddTournament extends Component {
                                 </CardFormItem>
                             </CardFormGroup>
 
+                            <CardFormGroup groupTitle={"Rules / Field Details"}>
+                                <CardFormItem>
+                                    <CustomDropdown
+                                        buttonText="Competition level"
+                                        dropdownHeader="How serious is the tournament?"
+                                        buttonProps={{
+                                            color: "transparent",
+                                            fullWidth: true
+                                        }}
+                                        dropdownList={[
+                                            { divider: true },
+                                            "Super serious", "Casual but competitive",
+                                            "Fun, not serious", "Mostly beginners"
+                                        ]}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomDropdown
+                                        buttonText="Which rule-set"
+                                        dropdownHeader="Which rules are used?"
+                                        buttonProps={{
+                                            color: "transparent",
+                                            fullWidth: true
+                                        }}
+                                        dropdownList={[
+                                            { divider: true },
+                                            "Anything goes", "Beach (BULA)", "Custom",
+                                            "Goaltimate", "USA Ultimate", "WFDF"
+                                        ]}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomDropdown
+                                        buttonText="Surface type"
+                                        dropdownHeader="The field is made of..."
+                                        buttonProps={{
+                                            color: "transparent",
+                                            fullWidth: true
+                                        }}
+                                        dropdownList={[
+                                            { divider: true },
+                                            "Real grass", "Astroturf", "Sand", "Asphalt",
+                                            "Wood / Indoor", "Other (see final notes)"
+                                        ]}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomDropdown
+                                        buttonText="Average # of players"
+                                        dropdownHeader="How many players show up usually?"
+                                        buttonProps={{
+                                            color: "transparent",
+                                            fullWidth: true
+                                        }}
+                                        dropdownList={[
+                                            { divider: true },
+                                            "0-10", "10-20", "20-30", "30+"
+                                        ]}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomDropdown
+                                        buttonText="Gender"
+                                        dropdownHeader="Who is invited?"
+                                        buttonProps={{
+                                            color: "transparent",
+                                            fullWidth: true
+                                        }}
+                                        dropdownList={[
+                                            { divider: true },
+                                            "Mixed", "Men only", "Females only"
+                                        ]}
+                                    />
+                                </CardFormItem>
+                            </CardFormGroup>
+
                             <CardFormGroup groupTitle={"Yes / No's"}>
                                 <CardFormItem>
                                     <CustomInput
@@ -162,7 +239,7 @@ class AddTournament extends Component {
                                 </CardFormItem>
                             </CardFormGroup>
 
-                            <CardFormGroup groupTitle={"Fees"} noEndSpacer>
+                            <CardFormGroup groupTitle={"Fees"}>
                                 <CardFormItem>
                                     <CustomInput
                                         labelText="Player Fees"
@@ -194,6 +271,25 @@ class AddTournament extends Component {
                                         formControlProps={{ fullWidth: true }}
                                         inputProps={{ type: "text" }}
                                     />
+                                </CardFormItem>
+                            </CardFormGroup>
+
+                            <CardFormGroup groupTitle={"Other"} noEndSpacer>
+                                <CardFormItem size={{'xs': 12}}>
+                                    <Tooltip
+                                        title="Add any extra notes here! Example: Bring your ID and 5 dollars for field fees..."
+                                        placement="top-start"
+                                    >
+                                        <TextField
+                                            // id="outlined-multiline-static"
+                                            label="Extra Notes"
+                                            multiline
+                                            fullWidth
+                                            rows="4"
+                                            className={classes.textField}
+                                            variant="outlined"
+                                        />
+                                    </Tooltip>
                                 </CardFormItem>
                             </CardFormGroup>
                         </CardForm>
