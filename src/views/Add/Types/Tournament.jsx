@@ -294,8 +294,8 @@ class AddTournament extends Component {
                             </CardFormGroup>
                         </CardForm>
                     </div>
+                    <Footer whiteFont />
                 </div>
-                <Footer whiteFont />
             </Fragment>
         );
     }
