@@ -30,7 +30,6 @@ CardFormItem.defaultProps = {
 };
 
 CardFormItem.propTypes = {
-    groupTitle: PropTypes.string.isRequired,
     // https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes
     size: PropTypes.objectOf(function(propValue, key, componentName, location, propFullName) {
         // These sizes are the only keys that should be added to this obj
