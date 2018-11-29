@@ -43,7 +43,7 @@ const tournamentStyle = theme => ({
         marginBottom: "0px",
         textAlign: "center"
     },
-    textField: {
+    textareaField: {
         float: "right",
         color: "#495057",
         fontSize: "14px",
@@ -57,6 +57,10 @@ const tournamentStyle = theme => ({
         "&::placeholder": {
             color: "#AAAAAA"
         }
+    },
+    datetimeTextField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
     },
 });
 

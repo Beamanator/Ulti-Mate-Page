@@ -110,36 +110,65 @@ class AddTournament extends Component {
                                             multiline
                                             fullWidth
                                             rows="4"
-                                            className={classes.textField}
+                                            className={classes.textareaField}
                                             variant="outlined"
                                         />
                                     </Tooltip>
                                 </CardFormItem>
                             </CardFormGroup>
 
-                            <CardFormGroup groupTitle={"Date / Registration"}>
+                            <CardFormGroup groupTitle={"Event / Registration Dates"}>
                                 <CardFormItem>
                                     <CustomInput
-                                        labelText="Event date range?..."
-                                        id={PREFIX + "time_test"}
+                                        className={classes.datetimeTextField}
+                                        labelText="Start date / time"    
+                                        id={PREFIX + "start_date_time"}
                                         formControlProps={{ fullWidth: true }}
-                                        inputProps={{ type: "text" }}
+                                        labelProps={{ shrink: true }}
+                                        inputProps={{
+                                            type: "datetime-local",
+                                            // push props all the way to native 'input' elem
+                                            inputProps: { step: 900 } // 15 min
+                                        }}
                                     />
                                 </CardFormItem>
                                 <CardFormItem>
                                     <CustomInput
-                                        labelText="Duration (auto calculated?)"
-                                        id={PREFIX + "time_test2"}
+                                        labelText="End date / time"
+                                        id={PREFIX + "end_date_time"}
                                         formControlProps={{ fullWidth: true }}
-                                        inputProps={{ type: "text" }}
+                                        labelProps={{ shrink: true }}
+                                        inputProps={{
+                                            type: "datetime-local",
+                                            // push props all the way to native 'input' elem
+                                            inputProps: { step: 900 } // 15 min
+                                        }}
                                     />
                                 </CardFormItem>
                                 <CardFormItem>
                                     <CustomInput
                                         labelText="Year of inception (volume #?)"
-                                        id={PREFIX + "time_test2"}
+                                        id={PREFIX + "time_test3"}
                                         formControlProps={{ fullWidth: true }}
                                         inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Registration opens on..."
+                                        id={PREFIX + "reg_start"}
+                                        formControlProps={{ fullWidth: true }}
+                                        labelProps={{ shrink: true }}
+                                        inputProps={{ type: "date" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Registration closes on..."
+                                        id={PREFIX + "reg_end"}
+                                        formControlProps={{ fullWidth: true }}
+                                        labelProps={{ shrink: true }}
+                                        inputProps={{ type: "date" }}
                                     />
                                 </CardFormItem>
                             </CardFormGroup>
@@ -286,7 +315,7 @@ class AddTournament extends Component {
                                             multiline
                                             fullWidth
                                             rows="4"
-                                            className={classes.textField}
+                                            className={classes.textareaField}
                                             variant="outlined"
                                         />
                                     </Tooltip>
