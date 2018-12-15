@@ -1,17 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
 // nodejs library that concatenates classes
-import classNames from "classnames";
+// import classNames from "classnames";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import {
-    FormControlLabel,
-    Hidden,
-    Switch,
     TextField,
     Tooltip,
-    Typography,
 } from "@material-ui/core";
 
 // core components
@@ -20,6 +16,7 @@ import CardFormGroup from "components/CardForm/CardFormGroup.jsx";
 import CardFormItem from "components/CardForm/CardFormItem.jsx";
 import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx';
 import CustomInput from "components/CustomInput/CustomInput.jsx";
+import CustomTournamentExtra from "components/CustomTournamentExtra/CustomTournamentExtra.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -35,8 +32,46 @@ const CARD_FORM_TITLE = "Add your Tournament so players can find you!";
 const PREFIX = "TOURNAMENT_ELEM_ID_";
 
 class AddTournament extends Component {
+    // this.enums = {
+    //     extras_included: 
+    // }
+    state = {
+        // tournament extras are like lunch, dinner, jerseys, etc. which may
+        // -> be available (included in fees) or not available, or extra fees
+        // -> for the tournament to organize
+        // possible 'included' vals: 'yes', 'no', 'extra'
+        extras: {
+            accomodation: { included: 'no', extraPrice: '0' },
+            transportation: { included: 'no', extraPrice: '0' },
+            lunch: { included: 'no', extraPrice: '0' },
+            dinner: { included: 'no', extraPrice: '0' },
+            water: { included: 'no', extraPrice: '0' },
+            jersey: { included: 'no', extraPrice: '0' },
+            party: { included: 'no', extraPrice: '0' },
+            disc: { included: 'no', extraPrice: '0' },
+        },
+    };
+
+    // when 'yes' / 'no' / 'extra' are selected, this function handles
+    // -> state change
+    handleTournamentExtraIncludeChange = (type) => event => {
+        let newExtraIncludedValue = event.target.value;
+
+        this.setState({
+            extras: {
+                ...this.state.extras,
+                [type]: {
+                    ...this.state.extras[type],
+                    included: newExtraIncludedValue,
+                }
+            }
+        });
+    }
+    // handleTournamentExtraPriceChange = () => {}
+
     render() {
         const { classes, ...rest } = this.props;
+        const { extras } = this.state;
 
         return (
             <Fragment>
@@ -281,57 +316,6 @@ class AddTournament extends Component {
                                 </CardFormItem>
                             </CardFormGroup>
 
-                            <CardFormGroup groupTitle={"Extras included?"}>
-                                <CardFormItem size={{xs: 4, lg: 2}}>
-                                    <Typography variant={"h6"} gutterBottom>
-                                        {"Meals"}
-                                    </Typography>
-                                </CardFormItem>
-                                <CardFormItem size={{xs: 8, lg: 5}}>
-                                    {/* FormGroup most likely not needed */}
-                                    {/* TODO: upgrade material-ui version (3.6) to get access */}
-                                    {/* to labelPlacement="top" */}
-                                    <FormControlLabel
-                                        control={
-                                            <Switch
-                                            checked={true}
-                                            />
-                                        }
-                                        label={'yes'}
-                                        labelPlacement="top"
-                                    />
-                                    <FormControlLabel
-                                        control={
-                                            <Switch
-                                            checked={true}
-                                            />
-                                        }
-                                        label={'no'}
-                                        labelPlacement="top"
-                                    />
-                                    <FormControlLabel
-                                        control={
-                                            <Switch
-                                            checked={true}
-                                            />
-                                        }
-                                        label={'Extra?'}
-                                        labelPlacement="top"
-                                    />
-                                </CardFormItem>
-                                <Hidden lgUp>
-                                    <CardFormItem size={{xs: 4}}></CardFormItem>
-                                </Hidden>
-                                <CardFormItem size={{xs: 8, lg: 5}}>
-                                    <CustomInput
-                                        labelText="How much extra?"
-                                        id={PREFIX + "extra"}
-                                        formControlProps={{ fullWidth: true }}
-                                        inputProps={{ type: "text" }}
-                                    />
-                                </CardFormItem>
-                            </CardFormGroup>
-
                             <CardFormGroup groupTitle={"Fees"}>
                                 <CardFormItem>
                                     <CustomInput
@@ -357,6 +341,49 @@ class AddTournament extends Component {
                                         inputProps={{ type: "text" }}
                                     />
                                 </CardFormItem>
+                            </CardFormGroup>
+
+                            <CardFormGroup groupTitle={"Fees include..."}>
+                                <CustomTournamentExtra
+                                    type={"Accomodation"}
+                                    details={extras.accomodation}
+                                    onIncludeChange={this.handleTournamentExtraIncludeChange('accomodation')}
+                                />
+                                <CustomTournamentExtra
+                                    type={"Transportation"}
+                                    details={extras.transportation}
+                                    onIncludeChange={this.handleTournamentExtraIncludeChange('transportation')}
+                                />
+                                <CustomTournamentExtra
+                                    type={"Lunch"}
+                                    details={extras.lunch}
+                                    onIncludeChange={this.handleTournamentExtraIncludeChange('lunch')}
+                                />
+                                <CustomTournamentExtra
+                                    type={"Dinner"}
+                                    details={extras.dinner}
+                                    onIncludeChange={this.handleTournamentExtraIncludeChange('dinner')}
+                                />
+                                <CustomTournamentExtra
+                                    type={"Water"}
+                                    details={extras.water}
+                                    onIncludeChange={this.handleTournamentExtraIncludeChange('water')}
+                                />
+                                <CustomTournamentExtra
+                                    type={"Tournament-themed jersey"}
+                                    details={extras.jersey}
+                                    onIncludeChange={this.handleTournamentExtraIncludeChange('jersey')}
+                                />
+                                <CustomTournamentExtra
+                                    type={"Tournament-themed disc"}
+                                    details={extras.disc}
+                                    onIncludeChange={this.handleTournamentExtraIncludeChange('disc')}
+                                />
+                                <CustomTournamentExtra
+                                    type={"Party"}
+                                    details={extras.party}
+                                    onIncludeChange={this.handleTournamentExtraIncludeChange('party')}
+                                />
                             </CardFormGroup>
 
                             <CardFormGroup groupTitle={"Other"} noEndSpacer>
