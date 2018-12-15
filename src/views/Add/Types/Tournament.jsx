@@ -85,7 +85,7 @@ class AddTournament extends Component {
                                 </CardFormItem>
                                 <CardFormItem>
                                     <CustomInput
-                                        labelText="City / location"
+                                        labelText="City / location description"
                                         id={PREFIX + "location"}
                                         formControlProps={{ fullWidth: true }}
                                         inputProps={{ type: "text" }}
@@ -221,6 +221,20 @@ class AddTournament extends Component {
                                 </CardFormItem>
                                 <CardFormItem>
                                     <CustomDropdown
+                                        buttonText="Gender"
+                                        dropdownHeader="Who is invited?"
+                                        buttonProps={{
+                                            color: "transparent",
+                                            fullWidth: true
+                                        }}
+                                        dropdownList={[
+                                            { divider: true },
+                                            "Mixed", "Men only", "Females only"
+                                        ]}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomDropdown
                                         buttonText="Average # of players"
                                         dropdownHeader="How many players show up usually?"
                                         buttonProps={{
@@ -235,15 +249,29 @@ class AddTournament extends Component {
                                 </CardFormItem>
                                 <CardFormItem>
                                     <CustomDropdown
-                                        buttonText="Gender"
-                                        dropdownHeader="Who is invited?"
+                                        buttonText="# of teams"
+                                        dropdownHeader="# needed for a successful tournament"
                                         buttonProps={{
                                             color: "transparent",
                                             fullWidth: true
                                         }}
                                         dropdownList={[
                                             { divider: true },
-                                            "Mixed", "Men only", "Females only"
+                                            "4", "6", "8", "8-12", "> 12", "Any amount is fine"
+                                        ]}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomDropdown
+                                        buttonText="# of fields"
+                                        dropdownHeader="How many fields are at the venue?"
+                                        buttonProps={{
+                                            color: "transparent",
+                                            fullWidth: true
+                                        }}
+                                        dropdownList={[
+                                            { divider: true },
+                                            "1", "2", "3-4", "5-8", "> 8"
                                         ]}
                                     />
                                 </CardFormItem>
@@ -285,25 +313,25 @@ class AddTournament extends Component {
                                         inputProps={{ type: "text" }}
                                     />
                                 </CardFormItem>
-                                <CardFormItem>
-                                    <CustomInput
-                                        labelText="Registration begins..."
-                                        id={PREFIX + "reg_start"}
-                                        formControlProps={{ fullWidth: true }}
-                                        inputProps={{ type: "text" }}
-                                    />
-                                </CardFormItem>
-                                <CardFormItem>
-                                    <CustomInput
-                                        labelText="Registration deadline..."
-                                        id={PREFIX + "reg_end"}
-                                        formControlProps={{ fullWidth: true }}
-                                        inputProps={{ type: "text" }}
-                                    />
-                                </CardFormItem>
                             </CardFormGroup>
 
                             <CardFormGroup groupTitle={"Other"} noEndSpacer>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText={"Number of countries represented..."}
+                                        id={PREFIX + "countries_represented"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText={"Language(s) spoken..."}
+                                        id={PREFIX + "languages"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
                                 <CardFormItem size={{'xs': 12}}>
                                     <Tooltip
                                         title="Add any extra notes here! Example: Bring your ID and 5 dollars for field fees..."
