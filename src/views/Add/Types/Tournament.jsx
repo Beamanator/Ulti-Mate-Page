@@ -6,8 +6,12 @@ import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import {
+    FormControlLabel,
+    Hidden,
+    Switch,
     TextField,
     Tooltip,
+    Typography,
 } from "@material-ui/core";
 
 // core components
@@ -277,18 +281,50 @@ class AddTournament extends Component {
                                 </CardFormItem>
                             </CardFormGroup>
 
-                            <CardFormGroup groupTitle={"Yes / No's"}>
-                                <CardFormItem>
-                                    <CustomInput
-                                        labelText="Meals included?"
-                                        id={PREFIX + "meals_included"}
-                                        formControlProps={{ fullWidth: true }}
-                                        inputProps={{ type: "text" }}
+                            <CardFormGroup groupTitle={"Extras included?"}>
+                                <CardFormItem size={{xs: 4, lg: 2}}>
+                                    <Typography variant={"h6"} gutterBottom>
+                                        {"Meals"}
+                                    </Typography>
+                                </CardFormItem>
+                                <CardFormItem size={{xs: 8, lg: 5}}>
+                                    {/* FormGroup most likely not needed */}
+                                    {/* TODO: upgrade material-ui version (3.6) to get access */}
+                                    {/* to labelPlacement="top" */}
+                                    <FormControlLabel
+                                        control={
+                                            <Switch
+                                            checked={true}
+                                            />
+                                        }
+                                        label={'yes'}
+                                        labelPlacement="top"
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                            <Switch
+                                            checked={true}
+                                            />
+                                        }
+                                        label={'no'}
+                                        labelPlacement="top"
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                            <Switch
+                                            checked={true}
+                                            />
+                                        }
+                                        label={'Extra?'}
+                                        labelPlacement="top"
                                     />
                                 </CardFormItem>
-                                <CardFormItem>
+                                <Hidden lgUp>
+                                    <CardFormItem size={{xs: 4}}></CardFormItem>
+                                </Hidden>
+                                <CardFormItem size={{xs: 8, lg: 5}}>
                                     <CustomInput
-                                        labelText="continue here... (yes / no / extra)"
+                                        labelText="How much extra?"
                                         id={PREFIX + "extra"}
                                         formControlProps={{ fullWidth: true }}
                                         inputProps={{ type: "text" }}
@@ -309,6 +345,14 @@ class AddTournament extends Component {
                                     <CustomInput
                                         labelText="Team Fees"
                                         id={PREFIX + "fees_team"}
+                                        formControlProps={{ fullWidth: true }}
+                                        inputProps={{ type: "text" }}
+                                    />
+                                </CardFormItem>
+                                <CardFormItem>
+                                    <CustomInput
+                                        labelText="Other Fees (describe)"
+                                        id={PREFIX + "fees_other"}
                                         formControlProps={{ fullWidth: true }}
                                         inputProps={{ type: "text" }}
                                     />
