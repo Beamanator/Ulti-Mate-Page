@@ -4,7 +4,7 @@
   "homepage": "https://beamanator.github.io/Ulti-Mate-Page",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "latest",
+    "@material-ui/core": "^3.6.2",
     "@material-ui/icons": "latest",
     "ajv": "6.0.0",
     "history": "4.7.2",
@@ -33,5 +33,11 @@
   },
   "devDependencies": {
     "gh-pages": "^1.2.0"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
