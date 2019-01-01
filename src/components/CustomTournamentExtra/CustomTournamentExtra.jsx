@@ -87,7 +87,7 @@ const CustomTournamentExtra = (props) => {
                         inputProps={{ type: "text" }}
                     />
                 </CardFormItem>
-            </Fragment>) : null}
+            </Fragment>) : <CardFormItem size={{xs: false, lg: 5}}></CardFormItem>}
         </Fragment>
     );
 }
