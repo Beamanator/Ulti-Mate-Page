@@ -12,6 +12,9 @@ const cardFormGroupStyle = theme => ({
         textAlign: 'center',
         marginTop: "10px"
     },
+    noMargin: {
+        margin: '0px',
+    },
 });
 
 export default cardFormGroupStyle;

@@ -16,10 +16,11 @@ const CardFormItem = (props) => {
     const {
         classes,
         size,
+        ...other
     } = props;
 
     return (
-        <GridItem {...size}>
+        <GridItem {...size} {...other}>
             {props.children}
         </GridItem>
     );

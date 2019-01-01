@@ -17,6 +17,7 @@ const CardFormGroup = (props) => {
         classes,
         groupTitle,
         noEndSpacer,
+        noMargin, // sets inner container's -15px margin offset to 0
     } = props;
 
     return (
@@ -26,8 +27,8 @@ const CardFormGroup = (props) => {
                     {groupTitle}
                 </GridItem>
                 <GridItem xs={10} className={classes.groupDataBorder}>
-                    {/* individual CardFormItems go inside */}
-                    <GridContainer>
+                    {/* individual CardFormItems go inside this container */}
+                    <GridContainer className={noMargin ? classes.noMargin : null}>
                         {props.children}
                     </GridContainer>
                 </GridItem>
