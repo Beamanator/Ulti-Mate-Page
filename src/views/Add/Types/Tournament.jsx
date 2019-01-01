@@ -57,6 +57,10 @@ class AddTournament extends Component {
     handleTournamentExtraIncludeChange = (type) => event => {
         let newExtraIncludedValue = event.target.value;
 
+        // if clicked but already selected, turn it off
+        if (this.state.extras[type].included === newExtraIncludedValue)
+            newExtraIncludedValue = '';
+
         this.setState({
             extras: {
                 ...this.state.extras,
