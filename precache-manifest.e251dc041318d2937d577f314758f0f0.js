@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/Ulti-Mate-Page/static/media/FDI-landing-bg.3e702421.jpg"
   },
   {
-    "revision": "13dae2240558125fbdcd",
-    "url": "/Ulti-Mate-Page/static/css/main.d1e93abf.chunk.css"
+    "revision": "9433b2695a744ba1c7cb",
+    "url": "/Ulti-Mate-Page/static/css/main.2da1e777.chunk.css"
   },
   {
     "revision": "b14b6965d29cdfb8af84",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/Ulti-Mate-Page/static/media/HipHip_fan.6360a224.jpg"
   },
   {
-    "revision": "13dae2240558125fbdcd",
-    "url": "/Ulti-Mate-Page/static/js/main.13dae224.chunk.js"
+    "revision": "9433b2695a744ba1c7cb",
+    "url": "/Ulti-Mate-Page/static/js/main.9433b269.chunk.js"
   },
   {
     "revision": "843781834b1db2908f08d921c6460c81",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/Ulti-Mate-Page/static/media/profile-bg.baf6b40a.jpg"
   },
   {
-    "revision": "b8faa77137add9fcd59a7136573cad60",
+    "revision": "b1b4a854459a3ced525259edfc450bfa",
     "url": "/Ulti-Mate-Page/index.html"
   }
 ];
