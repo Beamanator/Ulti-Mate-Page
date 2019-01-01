@@ -42,11 +42,11 @@ CardFormItem.propTypes = {
                 `Key <${key}> not allowed. Validation failed.`
             );
         }
-        // Check that all propValues are Integers
-        if (!Number.isInteger(propValue[key])) {
+        // Check that all propValues are Integers OR Booleans
+        if (!Number.isInteger(propValue[key]) && typeof propValue[key] !== typeof true) {
             return new Error(
                 `Invalid prop <${propFullName}> supplied to <${componentName}>. ` +
-                `Value <${propValue[key]}> not an Integer. Validation failed.`
+                `Value <${propValue[key]}> not an Integer not a Boolean. Validation failed.`
             );
         }
     }),
