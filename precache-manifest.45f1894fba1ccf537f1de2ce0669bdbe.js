@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/Ulti-Mate-Page/static/media/FDI-landing-bg.3e702421.jpg"
   },
   {
-    "revision": "9433b2695a744ba1c7cb",
+    "revision": "4f281a64e6b7f6a21d1a",
     "url": "/Ulti-Mate-Page/static/css/main.2da1e777.chunk.css"
   },
   {
-    "revision": "b14b6965d29cdfb8af84",
-    "url": "/Ulti-Mate-Page/static/js/1.b14b6965.chunk.js"
+    "revision": "ea8352dc1bf0289be0b3",
+    "url": "/Ulti-Mate-Page/static/js/1.ea8352dc.chunk.js"
   },
   {
     "revision": "5a6de447dcc0cc5d9ce0",
@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/Ulti-Mate-Page/static/media/avatar.f1d71f77.jpg"
   },
   {
-    "revision": "56633ed3f62f39d71f571374a6409e65",
-    "url": "/Ulti-Mate-Page/static/media/christian.56633ed3.jpg"
-  },
-  {
     "revision": "b08234a2b7e8e4fb2e3c4e713252021c",
     "url": "/Ulti-Mate-Page/static/media/bg7.b08234a2.jpg"
+  },
+  {
+    "revision": "56633ed3f62f39d71f571374a6409e65",
+    "url": "/Ulti-Mate-Page/static/media/christian.56633ed3.jpg"
   },
   {
     "revision": "e52419719dd0c4c8b172136f0b625008",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/Ulti-Mate-Page/static/media/HipHip_fan.6360a224.jpg"
   },
   {
-    "revision": "9433b2695a744ba1c7cb",
-    "url": "/Ulti-Mate-Page/static/js/main.9433b269.chunk.js"
+    "revision": "4f281a64e6b7f6a21d1a",
+    "url": "/Ulti-Mate-Page/static/js/main.4f281a64.chunk.js"
   },
   {
     "revision": "843781834b1db2908f08d921c6460c81",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/Ulti-Mate-Page/static/media/profile-bg.baf6b40a.jpg"
   },
   {
-    "revision": "b1b4a854459a3ced525259edfc450bfa",
+    "revision": "c10b98c23979e350a507126e8c924717",
     "url": "/Ulti-Mate-Page/index.html"
   }
 ];

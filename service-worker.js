@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Ulti-Mate-Page/precache-manifest.e251dc041318d2937d577f314758f0f0.js"
+  "/Ulti-Mate-Page/precache-manifest.45f1894fba1ccf537f1de2ce0669bdbe.js"
 );
 
 workbox.clientsClaim();
