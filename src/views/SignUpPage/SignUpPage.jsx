@@ -126,7 +126,7 @@ class SignInPage extends React.Component {
                                                 }}
                                             />
                                             <CustomInput
-                                                labelText="Password"
+                                                labelText="Password..."
                                                 id="pass"
                                                 formControlProps={{
                                                     fullWidth: true
@@ -143,7 +143,7 @@ class SignInPage extends React.Component {
                                                 }}
                                             />
                                             <CustomInput
-                                                labelText="Repeat Password"
+                                                labelText="Repeat Password..."
                                                 id="pass2"
                                                 formControlProps={{
                                                     fullWidth: true
