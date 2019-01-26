@@ -209,15 +209,11 @@ function HeaderLinks({ ...props }) {
                 />
             </ListItem> */}
 
-            {/* Log in / Sign up buttons */}
+            {/* Log in / Sign up buttons - only when NOT signed in */}
             <ListItem className={classes.listItem}>
-                <Button
-                    simple
-                    color="transparent"
-                    className={classes.navLink}
-                >
+                <Link to="/login-page" className={classes.navLink}>
                     Log In
-                </Button>
+                </Link>
             </ListItem>
             <ListItem className={classes.listItem}>
                 <Typography
@@ -228,13 +224,9 @@ function HeaderLinks({ ...props }) {
                 </Typography>
             </ListItem>
             <ListItem className={classes.listItem}>
-                <Button
-                    simple
-                    color="transparent"
-                    className={classes.navLink}
-                >
+                <Link to="/login-page" className={classes.navLink}>
                     Sign Up
-                </Button>
+                </Link>
             </ListItem>
         </List>
     );
