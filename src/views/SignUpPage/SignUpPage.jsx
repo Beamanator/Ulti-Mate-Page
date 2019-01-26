@@ -23,7 +23,7 @@ import authPagesStyle from "assets/jss/material-kit-react/views/authPages.jsx";
 
 import image from "assets/img/bg7.jpg";
 
-class LoginPage extends React.Component {
+class SignInPage extends React.Component {
     constructor(props) {
         super(props);
         // we use this to make the card to appear after the page has been rendered
@@ -65,7 +65,7 @@ class LoginPage extends React.Component {
                                 <Card className={classes[this.state.cardAnimaton]}>
                                     <form className={classes.form}>
                                         <CardHeader color="primary" className={classes.cardHeader}>
-                                            <h4>Login</h4>
+                                            <h4>Sign in</h4>
                                             <div className={classes.socialLine}>
                                                 <Button
                                                     justIcon
@@ -142,10 +142,27 @@ class LoginPage extends React.Component {
                                                     )
                                                 }}
                                             />
+                                            <CustomInput
+                                                labelText="Repeat Password"
+                                                id="pass2"
+                                                formControlProps={{
+                                                    fullWidth: true
+                                                }}
+                                                inputProps={{
+                                                    type: "password",
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <LockOutline
+                                                                className={classes.inputIconsColor}
+                                                            />
+                                                        </InputAdornment>
+                                                    )
+                                                }}
+                                            />
                                         </CardBody>
                                         <CardFooter className={classes.cardFooter}>
                                             <Button simple color="primary" size="lg">
-                                                Get started
+                                                Create account
                                             </Button>
                                         </CardFooter>
                                     </form>
@@ -160,4 +177,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export default withStyles(authPagesStyle)(LoginPage);
+export default withStyles(authPagesStyle)(SignInPage);
