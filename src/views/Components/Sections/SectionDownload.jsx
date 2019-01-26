@@ -31,7 +31,6 @@ class SectionDownload extends React.Component {
                 color="primary"
                 size="lg"
                 href="https://www.creative-tim.com/product/material-kit-react"
-                target="_blank"
               >
                 Free React Download
               </Button>
@@ -39,7 +38,6 @@ class SectionDownload extends React.Component {
                 color="primary"
                 size="lg"
                 href="https://www.creative-tim.com/product/material-kit"
-                target="_blank"
               >
                 Free HTML Downoad
               </Button>
@@ -54,7 +52,6 @@ class SectionDownload extends React.Component {
                 We've launched{" "}
                 <a
                   href="https://www.creative-tim.com/product/material-dashboard-pro-react"
-                  target="_blank"
                 >
                   Material Dashboard PRO React{" "}
                 </a>.It has a huge number of components, sections and example
@@ -68,7 +65,6 @@ class SectionDownload extends React.Component {
                 size="lg"
                 disabled
                 href="https://www.creative-tim.com/product/material-kit-pro-react"
-                target="_blank"
               >
                 Material Kit PRO
               </Button>
@@ -76,7 +72,6 @@ class SectionDownload extends React.Component {
                 color="rose"
                 size="lg"
                 href="https://www.creative-tim.com/product/material-dashboard-pro-react"
-                target="_blank"
               >
                 Material Dashboard PRO
               </Button>

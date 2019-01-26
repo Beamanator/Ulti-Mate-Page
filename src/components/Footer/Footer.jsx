@@ -35,7 +35,6 @@ function Footer({ ...props }) {
                             <a
                                 href="http://www.wfdf.org/"
                                 className={classes.block}
-                                target="_blank"
                             >
                                 World Flying Disc Federation
                             </a>
@@ -44,7 +43,6 @@ function Footer({ ...props }) {
                             <a
                                 href="http://chickenonaraft.com/"
                                 className={classes.block}
-                                target="_blank"
                             >
                                 About us chickens
                             </a>
@@ -53,7 +51,6 @@ function Footer({ ...props }) {
                             <a
                                 href="https://hencefarthing.blog/"
                                 className={classes.block}
-                                target="_blank"
                             >
                                 Blog
                             </a>

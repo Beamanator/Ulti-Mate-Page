@@ -34,7 +34,6 @@ class SectionLogin extends React.Component {
                       <Button
                         justIcon
                         href="#pablo"
-                        target="_blank"
                         color="transparent"
                         onClick={e => e.preventDefault()}
                       >
@@ -45,7 +44,6 @@ class SectionLogin extends React.Component {
                       <Button
                         justIcon
                         href="#pablo"
-                        target="_blank"
                         color="transparent"
                         onClick={e => e.preventDefault()}
                       >
@@ -56,7 +54,6 @@ class SectionLogin extends React.Component {
                       <Button
                         justIcon
                         href="#pablo"
-                        target="_blank"
                         color="transparent"
                         onClick={e => e.preventDefault()}
                       >

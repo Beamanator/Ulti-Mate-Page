@@ -40,28 +40,16 @@ function HeaderLinks({ ...props }) {
                         // <Link to="/landing-page" className={classes.dropdownLink}>
                         //     About
                         // </Link>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             About Hip-Hip
                         </a>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             FAQ
                         </a>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             Country Rankings
                         </a>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             News
                         </a>,
                     ]}
@@ -105,22 +93,13 @@ function HeaderLinks({ ...props }) {
                         >
                             Pick-up
                         </Link>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             Request
                         </a>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             Offering
                         </a>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             Business
                         </a>,
                     ]}
@@ -152,22 +131,13 @@ function HeaderLinks({ ...props }) {
                         // <Link to="/landing-page" className={classes.dropdownLink}>
                         //     Home
                         // </Link>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             Opportunities
                         </a>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             Career
                         </a>,
-                        <a
-                            href="#" target="_blank"
-                            className={classes.dropdownLink}
-                        >
+                        <a href="#" className={classes.dropdownLink} >
                             Sponsoring
                         </a>,
                     ]}
@@ -201,6 +171,7 @@ function HeaderLinks({ ...props }) {
                         <a
                             href="#"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className={classes.dropdownLink}
                         >
                             Logout

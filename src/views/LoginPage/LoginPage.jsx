@@ -70,7 +70,6 @@ class LoginPage extends React.Component {
                                                 <Button
                                                     justIcon
                                                     href="#pablo"
-                                                    target="_blank"
                                                     color="transparent"
                                                     onClick={e => e.preventDefault()}
                                                 >
@@ -79,7 +78,6 @@ class LoginPage extends React.Component {
                                                 <Button
                                                     justIcon
                                                     href="#pablo"
-                                                    target="_blank"
                                                     color="transparent"
                                                     onClick={e => e.preventDefault()}
                                                 >
@@ -88,7 +86,6 @@ class LoginPage extends React.Component {
                                                 <Button
                                                     justIcon
                                                     href="#pablo"
-                                                    target="_blank"
                                                     color="transparent"
                                                     onClick={e => e.preventDefault()}
                                                 >
